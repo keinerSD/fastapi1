@@ -38,7 +38,3 @@ app.include_router(vital_sign_router)
 app.include_router(query_router)
 app.include_router(appointment_router)
 app.include_router(nursing_staff_router)
-
-@app.get("/")
-def root():
-    return {"message": "API corriendo correctamente"}
