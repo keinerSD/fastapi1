@@ -16,8 +16,7 @@ app = FastAPI()
 origins = [
     #"http://localhost.tiangolo.com",
     #"https://localhost.tiangolo.com",
-    "http://localhost",
-    "http://localhost:5173"
+    "http://localhost"
     #"http://localhost:8080",
 ]
 
@@ -39,4 +38,5 @@ app.include_router(vital_sign_router)
 app.include_router(query_router)
 app.include_router(appointment_router)
 app.include_router(nursing_staff_router)
+
 
