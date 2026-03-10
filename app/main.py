@@ -12,7 +12,7 @@ from app.routes.rol_routes import router as rol_router
 from app.routes.usuario_routes import router as usuario_router
 from app.routes.facultad_routes import router as facultad_router
 from app.routes.programa_routes import router as programa_router
-
+from app.routes.auth_routes import router as auth_router
 
 app = FastAPI()
 
@@ -41,5 +41,7 @@ app.include_router(rol_router)
 app.include_router(usuario_router)
 app.include_router(facultad_router)
 app.include_router(programa_router)
+app.include_router(auth_router)
+
 
 
