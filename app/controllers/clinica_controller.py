@@ -1,132 +1,200 @@
 import psycopg2
 from fastapi import HTTPException
-from app.config.db_config import get_db_connection
-from app.models.medical_history_model import MedicalHistories
 from fastapi.encoders import jsonable_encoder
+from app.config.db_config import get_db_connection
+from app.models.clinica_model import Clinica
 
 
-class MedicalHistoryController:
+class ClinicaController:
 
-    def create_medicalhistory(self, medicalhistory: MedicalHistories):
+    def create_clinica(self, clinica: Clinica):
+
         conn = None
+
         try:
             conn = get_db_connection()
             cursor = conn.cursor()
+
             cursor.execute(
-                """INSERT INTO MedicalHistories (id_student, blood_type)
-                   VALUES (%s, %s)""",
-                (medicalhistory.id_student, medicalhistory.blood_type)
+                """INSERT INTO clinica
+                (nombre, direccion, telefono)
+                VALUES (%s,%s,%s)""",
+                (
+                    clinica.nombre,
+                    clinica.direccion,
+                    clinica.telefono
+                )
             )
+
             conn.commit()
-            return {"resultado": "Historial médico creado correctamente"}
+
+            return {"resultado": "Clínica creada correctamente"}
 
         except psycopg2.Error as err:
+
             if conn:
                 conn.rollback()
+
             raise HTTPException(status_code=500, detail=str(err))
 
         finally:
+
             if conn:
                 conn.close()
 
 
-    def get_medicalhistory(self, id_history: int):
+    def get_clinica(self, id_clinica: int):
+
         conn = None
+
         try:
+
             conn = get_db_connection()
             cursor = conn.cursor()
+
             cursor.execute(
-                "SELECT * FROM MedicalHistories WHERE id_history = %s",
-                (id_history,)
+                "SELECT * FROM clinica WHERE id_clinica = %s",
+                (id_clinica,)
             )
+
             result = cursor.fetchone()
 
             if not result:
-                raise HTTPException(status_code=404, detail="Historial médico not found")
+                raise HTTPException(status_code=404, detail="Clínica no encontrada")
 
             content = {
-                'id_history': result[0],
-                'id_student': result[1],
-                'blood_type': result[2]
+                "id_clinica": result[0],
+                "nombre": result[1],
+                "direccion": result[2],
+                "telefono": result[3]
             }
 
             return jsonable_encoder(content)
 
         except psycopg2.Error as err:
+
             raise HTTPException(status_code=500, detail=str(err))
 
         finally:
+
             if conn:
                 conn.close()
 
 
-    def get_medicalhistories(self):
+    def get_clinicas(self):
+
         conn = None
+
         try:
+
             conn = get_db_connection()
             cursor = conn.cursor()
-            cursor.execute("SELECT * FROM MedicalHistories")
+
+            cursor.execute("SELECT * FROM clinica")
+
             result = cursor.fetchall()
 
             if not result:
-                raise HTTPException(status_code=404, detail="Historiales médicos not found")
+                raise HTTPException(status_code=404, detail="Clínicas no encontradas")
 
             payload = []
+
             for data in result:
+
                 payload.append({
-                    'id_history': data[0],
-                    'id_student': data[1],
-                    'blood_type': data[2]
+                    "id_clinica": data[0],
+                    "nombre": data[1],
+                    "direccion": data[2],
+                    "telefono": data[3]
                 })
 
             return {"resultado": jsonable_encoder(payload)}
 
         except psycopg2.Error as err:
+
             raise HTTPException(status_code=500, detail=str(err))
 
         finally:
+
             if conn:
                 conn.close()
-    def update_history(self, id_history: int, history: MedicalHistories):
+
+
+    def update_clinica(self, id_clinica: int, clinica: Clinica):
+
         conn = None
+
         try:
+
             conn = get_db_connection()
             cursor = conn.cursor()
+
             cursor.execute(
-                """UPDATE medical_histories SET
-                    id_student = %s,
-                    blood_type = %s
-                   WHERE id_history = %s""",
-                (history.id_student, history.blood_type, id_history)
+                """UPDATE clinica SET
+                nombre = %s,
+                direccion = %s,
+                telefono = %s
+                WHERE id_clinica = %s""",
+                (
+                    clinica.nombre,
+                    clinica.direccion,
+                    clinica.telefono,
+                    id_clinica
+                )
             )
+
             if cursor.rowcount == 0:
-                raise HTTPException(status_code=404, detail="Medical history not found")
+                raise HTTPException(status_code=404, detail="Clínica no encontrada")
+
             conn.commit()
-            return {"resultado": "Historial médico actualizado correctamente"}
+
+            return {"resultado": "Clínica actualizada correctamente"}
+
         except psycopg2.Error as err:
+
             if conn:
                 conn.rollback()
+
             raise HTTPException(status_code=500, detail=str(err))
+
         finally:
+
             if conn:
                 conn.close()
 
-    def delete_history(self, id_history: int):
+
+    def delete_clinica(self, id_clinica: int):
+
         conn = None
+
         try:
+
             conn = get_db_connection()
             cursor = conn.cursor()
-            cursor.execute("DELETE FROM medical_histories WHERE id_history = %s", (id_history,))
+
+            cursor.execute(
+                "DELETE FROM clinica WHERE id_clinica = %s",
+                (id_clinica,)
+            )
+
             if cursor.rowcount == 0:
-                raise HTTPException(status_code=404, detail="Medical history not found")
+                raise HTTPException(status_code=404, detail="Clínica no encontrada")
+
             conn.commit()
-            return {"resultado": f"Historial médico con id {id_history} eliminado correctamente"}
+
+            return {"resultado": f"Clínica con id {id_clinica} eliminada correctamente"}
+
         except psycopg2.Error as err:
+
             if conn:
                 conn.rollback()
+
             raise HTTPException(status_code=500, detail=str(err))
+
         finally:
+
             if conn:
                 conn.close()
 
-medical_history_controller = MedicalHistoryController()
+
+clinica_controller = ClinicaController()
