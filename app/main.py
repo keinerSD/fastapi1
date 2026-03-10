@@ -17,12 +17,13 @@ from app.routes.auth_routes import router as auth_router
 app = FastAPI()
 
 origins = [
-    "http://localhost",
-    "http://localhost:5173"
+    "http://localhost:5173",
+    "https://upgraded-space-lamp-g459wvwjvw6639vvj-5173.app.github.dev"
 ]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=origins,  # o ["*"] para permitir todos
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -41,6 +42,7 @@ app.include_router(usuario_router)
 app.include_router(facultad_router)
 app.include_router(programa_router)
 app.include_router(auth_router)
+
 
 
 
