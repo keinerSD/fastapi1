@@ -45,40 +45,35 @@ class ProgramaController:
                 conn.close()
 
 
-    def get_programa(self,id_programa:int):
-
-        conn=None
-
+    def get_programas_por_facultad(self, id_facultad: int):
+        conn = None
         try:
-
-            conn=get_db_connection()
-            cursor=conn.cursor()
+            conn = get_db_connection()
+            cursor = conn.cursor()
 
             cursor.execute(
-                "SELECT * FROM programa WHERE id_programa=%s",
-                (id_programa,)
+                "SELECT id_programa, nombre FROM programa WHERE id_facultad = %s",
+                (id_facultad,)
             )
 
-            result=cursor.fetchone()
+            result = cursor.fetchall()
 
             if not result:
-                raise HTTPException(status_code=404,detail="Programa no encontrado")
+                return {"resultado": []}  # No hay programas para esa facultad
 
-            content={
-                "id_programa":result[0],
-                "id_facultad":result[1],
-                "nombre":result[2],
-                "descripcion":result[3]
-            }
+            payload = []
+            for data in result:
+                payload.append({
+                    "id_programa": data[0],
+                    "nombre": data[1]
+                })
 
-            return jsonable_encoder(content)
+            return {"resultado": jsonable_encoder(payload)}
 
         except psycopg2.Error as err:
-
-            raise HTTPException(status_code=500,detail=str(err))
+            raise HTTPException(status_code=500, detail=str(err))
 
         finally:
-
             if conn:
                 conn.close()
 
@@ -192,3 +187,4 @@ class ProgramaController:
 
 
 programa_controller=ProgramaController()
+
