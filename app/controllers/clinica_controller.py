@@ -17,12 +17,11 @@ class ClinicaController:
 
             cursor.execute(
                 """INSERT INTO clinica
-                (nombre, direccion, telefono)
-                VALUES (%s,%s,%s)""",
+                (nombre, ubicacion)
+                VALUES (%s,%s)""",
                 (
                     clinica.nombre,
-                    clinica.direccion,
-                    clinica.telefono
+                    clinica.ubicacion
                 )
             )
 
@@ -65,8 +64,7 @@ class ClinicaController:
             content = {
                 "id_clinica": result[0],
                 "nombre": result[1],
-                "direccion": result[2],
-                "telefono": result[3]
+                "ubicacion": result[2]
             }
 
             return jsonable_encoder(content)
@@ -104,8 +102,7 @@ class ClinicaController:
                 payload.append({
                     "id_clinica": data[0],
                     "nombre": data[1],
-                    "direccion": data[2],
-                    "telefono": data[3]
+                    "ubicacion": data[2]
                 })
 
             return {"resultado": jsonable_encoder(payload)}
@@ -132,13 +129,11 @@ class ClinicaController:
             cursor.execute(
                 """UPDATE clinica SET
                 nombre = %s,
-                direccion = %s,
-                telefono = %s
+                ubicacion = %s
                 WHERE id_clinica = %s""",
                 (
                     clinica.nombre,
-                    clinica.direccion,
-                    clinica.telefono,
+                    clinica.ubicacion,
                     id_clinica
                 )
             )
@@ -198,3 +193,4 @@ class ClinicaController:
 
 
 clinica_controller = ClinicaController()
+
