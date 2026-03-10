@@ -13,10 +13,9 @@ async def create_programa(programa: Programa):
     return rpta
 
 
-@router.get("/get_programa/{id_programa}", response_model=Programa)
-async def get_programa(id_programa: int):
-    rpta = nuevo_programa.get_programa(id_programa)
-    return rpta
+@router.get("/get_programas_por_facultad/{id_facultad}")
+async def get_programas_por_facultad(id_facultad: int):
+    return programa_controller.get_programas_por_facultad(id_facultad)
 
 
 @router.get("/get_programas/")
@@ -33,3 +32,4 @@ def update_programa(id_programa: int, programa: Programa):
 @router.delete("/{id_programa}")
 def delete_programa(id_programa: int):
     return programa_controller.delete_programa(id_programa)
+
