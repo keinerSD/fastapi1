@@ -1,139 +1,208 @@
 import psycopg2
 from fastapi import HTTPException
-from app.config.db_config import get_db_connection
-from app.models.derivation_model import Derivation
 from fastapi.encoders import jsonable_encoder
+from app.config.db_config import get_db_connection
+from app.models.derivacion_model import Derivacion
 
-class DerivationController:
 
-    def create_derivation(self, derivation: Derivation):
+class DerivacionController:
+
+    def create_derivacion(self, derivacion: Derivacion):
+
         conn = None
+
         try:
+
             conn = get_db_connection()
             cursor = conn.cursor()
+
             cursor.execute(
-                """INSERT INTO derivations
-                (id_query, destination_institution, reason, derivation_date)
-                VALUES (%s, %s, %s, %s)""",
+                """INSERT INTO derivacion
+                (id_consulta, id_clinica, razon, fecha)
+                VALUES (%s,%s,%s,%s)""",
+
                 (
-                    derivation.id_query,
-                    derivation.destination_institution,
-                    derivation.reason,
-                    derivation.derivation_date
+                    derivacion.id_consulta,
+                    derivacion.id_clinica,
+                    derivacion.razon,
+                    derivacion.fecha
                 )
             )
+
             conn.commit()
+
             return {"resultado": "Derivación creada correctamente"}
+
         except psycopg2.Error as err:
+
             if conn:
                 conn.rollback()
+
             raise HTTPException(status_code=500, detail=str(err))
+
         finally:
+
             if conn:
                 conn.close()
 
-    def get_derivation(self, id_derivation: int):
+
+    def get_derivacion(self, id_derivacion: int):
+
         conn = None
+
         try:
+
             conn = get_db_connection()
             cursor = conn.cursor()
+
             cursor.execute(
-                "SELECT * FROM derivations WHERE id_derivation = %s",
-                (id_derivation,)
+                "SELECT * FROM derivacion WHERE id_derivacion = %s",
+                (id_derivacion,)
             )
+
             result = cursor.fetchone()
+
             if not result:
-                raise HTTPException(status_code=404, detail="Derivation not found")
+                raise HTTPException(status_code=404, detail="Derivación no encontrada")
+
             content = {
-                "id_derivation": result[0],
-                "id_query": result[1],
-                "destination_institution": result[2],
-                "reason": result[3],
-                "derivation_date": result[4]
+                "id_derivacion": result[0],
+                "id_consulta": result[1],
+                "id_clinica": result[2],
+                "razon": result[3],
+                "fecha": result[4]
             }
+
             return jsonable_encoder(content)
+
         except psycopg2.Error as err:
+
             raise HTTPException(status_code=500, detail=str(err))
+
         finally:
+
             if conn:
                 conn.close()
 
-    def get_derivations(self):
+
+    def get_derivaciones(self):
+
         conn = None
+
         try:
+
             conn = get_db_connection()
             cursor = conn.cursor()
-            cursor.execute("SELECT * FROM derivations")
+
+            cursor.execute("SELECT * FROM derivacion")
+
             result = cursor.fetchall()
+
             if not result:
-                raise HTTPException(status_code=404, detail="No derivations found")
+                raise HTTPException(status_code=404, detail="Derivaciones no encontradas")
+
             payload = []
+
             for data in result:
+
                 payload.append({
-                    "id_derivation": data[0],
-                    "id_query": data[1],
-                    "destination_institution": data[2],
-                    "reason": data[3],
-                    "derivation_date": data[4]
+                    "id_derivacion": data[0],
+                    "id_consulta": data[1],
+                    "id_clinica": data[2],
+                    "razon": data[3],
+                    "fecha": data[4]
                 })
+
             return {"resultado": jsonable_encoder(payload)}
+
         except psycopg2.Error as err:
+
             raise HTTPException(status_code=500, detail=str(err))
+
         finally:
+
             if conn:
                 conn.close()
 
-    def update_derivation(self, id_derivation: int, derivation: Derivation):
+
+    def update_derivacion(self, id_derivacion: int, derivacion: Derivacion):
+
         conn = None
+
         try:
+
             conn = get_db_connection()
             cursor = conn.cursor()
+
             cursor.execute(
-                """UPDATE derivations SET
-                    id_query = %s,
-                    destination_institution = %s,
-                    reason = %s,
-                    derivation_date = %s
-                   WHERE id_derivation = %s""",
+                """UPDATE derivacion SET
+                id_consulta = %s,
+                id_clinica = %s,
+                razon = %s,
+                fecha = %s
+                WHERE id_derivacion = %s""",
+
                 (
-                    derivation.id_query,
-                    derivation.destination_institution,
-                    derivation.reason,
-                    derivation.derivation_date,
-                    id_derivation
+                    derivacion.id_consulta,
+                    derivacion.id_clinica,
+                    derivacion.razon,
+                    derivacion.fecha,
+                    id_derivacion
                 )
             )
+
             if cursor.rowcount == 0:
-                raise HTTPException(status_code=404, detail="Derivation not found")
+                raise HTTPException(status_code=404, detail="Derivación no encontrada")
+
             conn.commit()
+
             return {"resultado": "Derivación actualizada correctamente"}
+
         except psycopg2.Error as err:
+
             if conn:
                 conn.rollback()
+
             raise HTTPException(status_code=500, detail=str(err))
+
         finally:
+
             if conn:
                 conn.close()
 
-    def delete_derivation(self, id_derivation: int):
+
+    def delete_derivacion(self, id_derivacion: int):
+
         conn = None
+
         try:
+
             conn = get_db_connection()
             cursor = conn.cursor()
+
             cursor.execute(
-                "DELETE FROM derivations WHERE id_derivation = %s",
-                (id_derivation,)
+                "DELETE FROM derivacion WHERE id_derivacion = %s",
+                (id_derivacion,)
             )
+
             if cursor.rowcount == 0:
-                raise HTTPException(status_code=404, detail="Derivation not found")
+                raise HTTPException(status_code=404, detail="Derivación no encontrada")
+
             conn.commit()
-            return {"resultado": f"Derivación con id {id_derivation} eliminada correctamente"}
+
+            return {"resultado": f"Derivación con id {id_derivacion} eliminada correctamente"}
+
         except psycopg2.Error as err:
+
             if conn:
                 conn.rollback()
+
             raise HTTPException(status_code=500, detail=str(err))
+
         finally:
+
             if conn:
                 conn.close()
 
-derivation_controller = DerivationController()
+
+derivacion_controller = DerivacionController()
