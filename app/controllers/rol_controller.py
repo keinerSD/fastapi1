@@ -12,15 +12,18 @@ class RolController:
         conn = None
 
         try:
-
             conn = get_db_connection()
             cursor = conn.cursor()
 
             cursor.execute(
                 """INSERT INTO rol
-                (nombre)
-                VALUES (%s)""",
-                (rol.nombre,)
+                (nombre, descripcion, acceso_privilegiado)
+                VALUES (%s,%s,%s)""",
+                (
+                    rol.nombre,
+                    rol.descripcion,
+                    rol.acceso_privilegiado
+                )
             )
 
             conn.commit()
@@ -61,7 +64,9 @@ class RolController:
 
             content = {
                 "id_rol": result[0],
-                "nombre": result[1]
+                "nombre": result[1],
+                "descripcion": result[2],
+                "acceso_privilegiado": result[3]
             }
 
             return jsonable_encoder(content)
@@ -98,7 +103,9 @@ class RolController:
 
                 payload.append({
                     "id_rol": data[0],
-                    "nombre": data[1]
+                    "nombre": data[1],
+                    "descripcion": data[2],
+                    "acceso_privilegiado": data[3]
                 })
 
             return {"resultado": jsonable_encoder(payload)}
@@ -124,10 +131,14 @@ class RolController:
 
             cursor.execute(
                 """UPDATE rol SET
-                nombre = %s
+                nombre = %s,
+                descripcion = %s,
+                acceso_privilegiado = %s
                 WHERE id_rol = %s""",
                 (
                     rol.nombre,
+                    rol.descripcion,
+                    rol.acceso_privilegiado,
                     id_rol
                 )
             )
