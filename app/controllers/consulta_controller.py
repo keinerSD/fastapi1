@@ -133,6 +133,44 @@ class ConsultaController:
             if conn:
                 conn.close()
 
+    def get_consultas_estudiante(self, id_estudiante: int):
+
+    conn = None
+
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor()
+
+        cursor.execute(
+            "SELECT * FROM consulta WHERE id_estudiante = %s",
+            (id_estudiante,)
+        )
+
+        result = cursor.fetchall()
+
+        payload = []
+
+        for data in result:
+            payload.append({
+                "id_consulta": data[0],
+                "id_estudiante": data[1],
+                "id_usuario": data[2],
+                "diagnostico": data[3],
+                "observaciones": data[4],
+                "motivo_consulta": data[5],
+                "fecha_entrada": data[6],
+                "fecha_salida": data[7]
+            })
+
+        return {"resultado": jsonable_encoder(payload)}
+
+    except psycopg2.Error as err:
+        raise HTTPException(status_code=500, detail=str(err))
+
+    finally:
+        if conn:
+            conn.close()
+
 
     def update_consulta(self, id_consulta: int, consulta: Consulta):
 
@@ -221,3 +259,4 @@ class ConsultaController:
 
 
 consulta_controller = ConsultaController()
+
