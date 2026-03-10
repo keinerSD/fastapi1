@@ -59,7 +59,7 @@ class EstudianteController:
                 conn.close()
 
 
-    def get_estudiante(self, id_estudiante: int):
+    def get_estudiante(self, numero_identificacion: int):
 
         conn = None
 
@@ -69,8 +69,8 @@ class EstudianteController:
             cursor = conn.cursor()
 
             cursor.execute(
-                "SELECT * FROM estudiante WHERE id_estudiante = %s",
-                (id_estudiante,)
+                "SELECT * FROM estudiante WHERE numero_identificacion = %s",
+                (numero_identificacion,)
             )
 
             result = cursor.fetchone()
@@ -252,3 +252,4 @@ class EstudianteController:
 
 
 estudiante_controller = EstudianteController()
+
