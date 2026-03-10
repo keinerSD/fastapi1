@@ -9,5 +9,6 @@ class SignosVitales(BaseModel):
     peso: float
     altura: float
     saturacion_oxigeno: float
-    frecuencia_cardiaca: int
+    frecuencia_cardiaca: float
     tipo_sangre: str
+
