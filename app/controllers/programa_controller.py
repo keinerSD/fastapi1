@@ -44,7 +44,6 @@ class ProgramaController:
             if conn:
                 conn.close()
 
-
     def get_programas_por_facultad(self, id_facultad: int):
         conn = None
         try:
@@ -187,4 +186,5 @@ class ProgramaController:
 
 
 programa_controller=ProgramaController()
+
 
