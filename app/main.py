@@ -1,24 +1,24 @@
 from fastapi import FastAPI
-from app.routes.student_routes import router as student_router
-from app.routes.medical_equipment_routes import router as medical_equipment_router
-from app.routes.medical_history_routes import router as medical_history_router
-from app.routes.university_accident_routes import router as university_accident_router
-from app.routes.derivation_routes import router as derivation_router
-from app.routes.emergency_routes import router as emergency_router
-from app.routes.vital_sign_routes import router as vital_sign_router
-from app.routes.query_routes import router as query_router
-from app.routes.appointment_routes import router as appointment_router
-from app.routes.nursing_staff_routes import router as nursing_staff_router
 from fastapi.middleware.cors import CORSMiddleware
+
+# ROUTERS
+from app.routes.estudiante_routes import router as estudiante_router
+from app.routes.consulta_routes import router as consulta_router
+from app.routes.clinica_routes import router as clinica_router
+from app.routes.signos_vitales_routes import router as signos_vitales_router
+from app.routes.derivacion_routes import router as derivacion_router
+from app.routes.emergencia_routes import router as emergencia_router
+from app.routes.rol_routes import router as rol_router
+from app.routes.usuario_routes import router as usuario_router
+from app.routes.facultad_routes import router as facultad_router
+from app.routes.programa_routes import router as programa_router
+
 
 app = FastAPI()
 
 origins = [
-    #"http://localhost.tiangolo.com",
-    #"https://localhost.tiangolo.com",
     "http://localhost",
     "http://localhost:5173"
-    #"http://localhost:8080",
 ]
 
 app.add_middleware(
@@ -29,16 +29,15 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(student_router)
-app.include_router(medical_equipment_router)
-app.include_router(medical_history_router)
-app.include_router(university_accident_router)
-app.include_router(derivation_router)
-app.include_router(emergency_router)
-app.include_router(vital_sign_router)
-app.include_router(query_router)
-app.include_router(appointment_router)
-app.include_router(nursing_staff_router)
+# REGISTRO DE ROUTERS
 
-
-
+app.include_router(estudiante_router)
+app.include_router(consulta_router)
+app.include_router(clinica_router)
+app.include_router(signos_vitales_router)
+app.include_router(derivacion_router)
+app.include_router(emergencia_router)
+app.include_router(rol_router)
+app.include_router(usuario_router)
+app.include_router(facultad_router)
+app.include_router(programa_router)
