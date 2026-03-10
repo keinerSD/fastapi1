@@ -17,17 +17,21 @@ class EstudianteController:
 
             cursor.execute(
                 """INSERT INTO estudiante
-                (matricula, nombre, apellido, fecha_nacimiento, genero, telefono, email, direccion)
-                VALUES (%s,%s,%s,%s,%s,%s,%s,%s)""",
+                (id_facultad, id_programa, id_usuario, primer_nombre, primer_apellido,
+                tipo_identificacion, numero_identificacion, genero, telefono, direccion, fecha_registro)
+                VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)""",
                 (
-                    estudiante.matricula,
-                    estudiante.nombre,
-                    estudiante.apellido,
-                    estudiante.fecha_nacimiento,
+                    estudiante.id_facultad,
+                    estudiante.id_programa,
+                    estudiante.id_usuario,
+                    estudiante.primer_nombre,
+                    estudiante.primer_apellido,
+                    estudiante.tipo_identificacion,
+                    estudiante.numero_identificacion,
                     estudiante.genero,
                     estudiante.telefono,
-                    estudiante.email,
-                    estudiante.direccion
+                    estudiante.direccion,
+                    estudiante.fecha_registro
                 )
             )
 
@@ -69,14 +73,17 @@ class EstudianteController:
 
             content = {
                 "id_estudiante": result[0],
-                "matricula": result[1],
-                "nombre": result[2],
-                "apellido": result[3],
-                "fecha_nacimiento": result[4],
-                "genero": result[5],
-                "telefono": result[6],
-                "email": result[7],
-                "direccion": result[8]
+                "id_facultad": result[1],
+                "id_programa": result[2],
+                "id_usuario": result[3],
+                "primer_nombre": result[4],
+                "primer_apellido": result[5],
+                "tipo_identificacion": result[6],
+                "numero_identificacion": result[7],
+                "genero": result[8],
+                "telefono": result[9],
+                "direccion": result[10],
+                "fecha_registro": result[11]
             }
 
             return jsonable_encoder(content)
@@ -113,14 +120,17 @@ class EstudianteController:
 
                 payload.append({
                     "id_estudiante": data[0],
-                    "matricula": data[1],
-                    "nombre": data[2],
-                    "apellido": data[3],
-                    "fecha_nacimiento": data[4],
-                    "genero": data[5],
-                    "telefono": data[6],
-                    "email": data[7],
-                    "direccion": data[8]
+                    "id_facultad": data[1],
+                    "id_programa": data[2],
+                    "id_usuario": data[3],
+                    "primer_nombre": data[4],
+                    "primer_apellido": data[5],
+                    "tipo_identificacion": data[6],
+                    "numero_identificacion": data[7],
+                    "genero": data[8],
+                    "telefono": data[9],
+                    "direccion": data[10],
+                    "fecha_registro": data[11]
                 })
 
             return {"resultado": jsonable_encoder(payload)}
@@ -146,24 +156,30 @@ class EstudianteController:
 
             cursor.execute(
                 """UPDATE estudiante SET
-                matricula = %s,
-                nombre = %s,
-                apellido = %s,
-                fecha_nacimiento = %s,
+                id_facultad = %s,
+                id_programa = %s,
+                id_usuario = %s,
+                primer_nombre = %s,
+                primer_apellido = %s,
+                tipo_identificacion = %s,
+                numero_identificacion = %s,
                 genero = %s,
                 telefono = %s,
-                email = %s,
-                direccion = %s
+                direccion = %s,
+                fecha_registro = %s
                 WHERE id_estudiante = %s""",
                 (
-                    estudiante.matricula,
-                    estudiante.nombre,
-                    estudiante.apellido,
-                    estudiante.fecha_nacimiento,
+                    estudiante.id_facultad,
+                    estudiante.id_programa,
+                    estudiante.id_usuario,
+                    estudiante.primer_nombre,
+                    estudiante.primer_apellido,
+                    estudiante.tipo_identificacion,
+                    estudiante.numero_identificacion,
                     estudiante.genero,
                     estudiante.telefono,
-                    estudiante.email,
                     estudiante.direccion,
+                    estudiante.fecha_registro,
                     id_estudiante
                 )
             )
