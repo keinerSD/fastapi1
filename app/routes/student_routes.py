@@ -1,33 +1,35 @@
 from fastapi import APIRouter, HTTPException
-from app.controllers.student_controller import *
-from app.models.student_model import Students
+from app.controllers.estudiante_controller import *
+from app.models.estudiante_model import Estudiante
 
-router = APIRouter(prefix="/students",tags=["Students"])
+router = APIRouter(prefix="/estudiantes", tags=["Estudiantes"])
 
-nuevo_estudiante = StudentController()
+nuevo_estudiante = EstudianteController()
 
 
-@router.post("/create_student")
-async def create_student(student: Students):
-    rpta = nuevo_estudiante.create_student(student)
+@router.post("/create_estudiante")
+async def create_estudiante(estudiante: Estudiante):
+    rpta = nuevo_estudiante.create_estudiante(estudiante)
     return rpta
 
 
-@router.get("/get_student/{id_student}",response_model=Students)
-async def get_student(id_student: int):
-    rpta = nuevo_estudiante.get_student(id_student)
+@router.get("/get_estudiante/{id_estudiante}", response_model=Estudiante)
+async def get_estudiante(id_estudiante: int):
+    rpta = nuevo_estudiante.get_estudiante(id_estudiante)
     return rpta
 
-@router.get("/get_students/")
-async def get_students():
-    rpta = nuevo_estudiante.get_students()
+
+@router.get("/get_estudiantes/")
+async def get_estudiantes():
+    rpta = nuevo_estudiante.get_estudiantes()
     return rpta
 
-@router.put("/{id_student}")
-def update_student(id_student: int, student: Students):
-    return student_controller.update_student(id_student, student)
 
-# DELETE
-@router.delete("/{id_student}")
-def delete_student(id_student: int):
-    return student_controller.delete_student(id_student)
+@router.put("/{id_estudiante}")
+def update_estudiante(id_estudiante: int, estudiante: Estudiante):
+    return estudiante_controller.update_estudiante(id_estudiante, estudiante)
+
+
+@router.delete("/{id_estudiante}")
+def delete_estudiante(id_estudiante: int):
+    return estudiante_controller.delete_estudiante(id_estudiante)
