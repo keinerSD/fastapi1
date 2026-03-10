@@ -44,6 +44,13 @@ class EstudianteController:
             if conn:
                 conn.rollback()
 
+            # Manejo de UNIQUE
+            if "duplicate key value" in str(err):
+                raise HTTPException(
+                    status_code=400,
+                    detail="El número de identificación ya está registrado"
+                )
+
             raise HTTPException(status_code=500, detail=str(err))
 
         finally:
@@ -195,6 +202,12 @@ class EstudianteController:
 
             if conn:
                 conn.rollback()
+
+            if "duplicate key value" in str(err):
+                raise HTTPException(
+                    status_code=400,
+                    detail="El número de identificación ya está registrado"
+                )
 
             raise HTTPException(status_code=500, detail=str(err))
 
