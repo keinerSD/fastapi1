@@ -1,8 +1,9 @@
 from pydantic import BaseModel
 import datetime
+from typing import Optional
 
 class Consulta(BaseModel):
-    id_consulta: int = None
+    id_consulta: Optional[int] = None
     id_estudiante: int
     id_usuario: int
 
@@ -12,3 +13,4 @@ class Consulta(BaseModel):
 
     fecha_entrada: datetime.datetime
     fecha_salida: datetime.datetime
+
