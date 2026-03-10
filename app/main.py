@@ -15,7 +15,9 @@ from app.routes.programa_routes import router as programa_router
 
 
 app = FastAPI()
-
+@app.get("/")
+def home():
+    return {"message": "API de enfermería funcionando correctamente"}
 origins = [
     "http://localhost",
     "http://localhost:5173"
@@ -41,3 +43,4 @@ app.include_router(rol_router)
 app.include_router(usuario_router)
 app.include_router(facultad_router)
 app.include_router(programa_router)
+
