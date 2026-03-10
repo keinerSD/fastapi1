@@ -14,8 +14,8 @@ async def create_estudiante(estudiante: Estudiante):
 
 
 @router.get("/get_estudiante/{id_estudiante}", response_model=Estudiante)
-async def get_estudiante(id_estudiante: int):
-    rpta = nuevo_estudiante.get_estudiante(id_estudiante)
+async def get_estudiante(numero_identificacion: int):
+    rpta = nuevo_estudiante.get_estudiante(numero_identificacion)
     return rpta
 
 
@@ -33,3 +33,4 @@ def update_estudiante(id_estudiante: int, estudiante: Estudiante):
 @router.delete("/{id_estudiante}")
 def delete_estudiante(id_estudiante: int):
     return estudiante_controller.delete_estudiante(id_estudiante)
+
