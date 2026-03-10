@@ -18,9 +18,7 @@ app = FastAPI()
 
 origins = [
     "http://localhost",
-    "http://localhost:5173",
-    "https://tns8kzc0-5173.use2.devtunnels.ms/"
-]
+    "http://localhost:5173"
 
 app.add_middleware(
     CORSMiddleware,
@@ -43,6 +41,7 @@ app.include_router(usuario_router)
 app.include_router(facultad_router)
 app.include_router(programa_router)
 app.include_router(auth_router)
+
 
 
 
