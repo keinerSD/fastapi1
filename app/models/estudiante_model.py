@@ -1,8 +1,9 @@
 from pydantic import BaseModel
 import datetime
+from typing import Optional
 
 class Estudiante(BaseModel):
-    id_estudiante: int = None
+    id_estudiante: Optional[int] = None
     id_facultad: int
     id_programa: int
     id_usuario: int
@@ -16,3 +17,4 @@ class Estudiante(BaseModel):
     direccion: str
 
     fecha_registro: datetime.datetime
+
