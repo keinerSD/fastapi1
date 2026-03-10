@@ -7,6 +7,5 @@ class Login(BaseModel):
 class Register(BaseModel):
     primer_nombre: str
     primer_apellido: str
-    cedula: str
     email: str
     password: str
