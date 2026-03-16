@@ -136,6 +136,55 @@ class ConsultaController:
             if conn:
                 conn.close()
 
+    def get_consultas_by_cedula(self, cedula: str):
+
+        conn = None
+
+        try:
+
+            conn = get_db_connection()
+            cursor = conn.cursor()
+
+            query = """
+                SELECT 
+                    c.id_consulta,
+                    c.fecha_entrada,
+                    c.fecha_salida,
+                    c.motivo_consulta,
+                    c.diagnostico,
+                    c.observaciones
+                FROM consultas c
+                JOIN estudiantes e 
+                    ON c.id_estudiante = e.id_estudiante
+                WHERE e.numero_identificacion = %s
+                ORDER BY c.fecha_entrada DESC
+            """
+
+            cursor.execute(query, (cedula,))
+
+            rows = cursor.fetchall()
+
+            columnas = [desc[0] for desc in cursor.description]
+
+            consultas = [
+                dict(zip(columnas, row))
+                for row in rows
+            ]
+
+            return jsonable_encoder(consultas)
+
+        except Exception as e:
+
+            raise HTTPException(
+                status_code=500,
+                detail=f"Error obteniendo consultas: {str(e)}"
+            )
+
+        finally:
+
+            if conn:
+                conn.close()
+
     
 
     def update_consulta(self, id_consulta: int, consulta: Consulta):
