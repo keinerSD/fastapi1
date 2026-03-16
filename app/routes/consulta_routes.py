@@ -32,7 +32,6 @@ async def get_consultas(cedula: str):
         "resultado": resultado
     }
 
-
 @router.get("/get_consultas/")
 async def get_consultas():
     rpta = nueva_consulta.get_consultas()
