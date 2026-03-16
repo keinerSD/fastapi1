@@ -34,7 +34,9 @@ class ConsultaController:
 
             conn.commit()
 
-            return {"resultado": "Consulta creada correctamente","id_consulta":id_consulta}
+            return {"resultado": "Consulta creada correctamente",
+                    "id_consulta":id_consulta
+                   }
 
         except psycopg2.Error as err:
 
