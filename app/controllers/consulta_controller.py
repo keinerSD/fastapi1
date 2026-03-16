@@ -109,25 +109,35 @@ class ConsultaController:
 
 
     def get_consultas(self):
-
         conn = None
-
         try:
-
             conn = get_db_connection()
             cursor = conn.cursor()
-
-            cursor.execute("SELECT * FROM consulta")
-
+    
+            cursor.execute("""
+                SELECT 
+                    c.id_consulta,
+                    c.id_estudiante,
+                    c.id_usuario,
+                    c.diagnostico,
+                    c.observaciones,
+                    c.motivo_consulta,
+                    c.fecha_entrada,
+                    c.fecha_salida,
+                    e.primer_nombre,
+                    e.primer_apellido,
+                    e.numero_identificacion
+                FROM consulta c
+                INNER JOIN estudiante e
+                    ON c.id_estudiante = e.id_estudiante
+            """)
+    
             result = cursor.fetchall()
-
             if not result:
                 raise HTTPException(status_code=404, detail="Consultas no encontradas")
-
+    
             payload = []
-
             for data in result:
-
                 payload.append({
                     "id_consulta": data[0],
                     "id_estudiante": data[1],
@@ -136,29 +146,26 @@ class ConsultaController:
                     "observaciones": data[4],
                     "motivo_consulta": data[5],
                     "fecha_entrada": data[6],
-                    "fecha_salida": data[7]
+                    "fecha_salida": data[7],
+                    "primer_nombre": data[8],
+                    "primer_apellido": data[9],
+                    "cedula": data[10]
                 })
-
+    
             return {"resultado": jsonable_encoder(payload)}
-
+    
         except psycopg2.Error as err:
-
             raise HTTPException(status_code=500, detail=str(err))
-
         finally:
-
             if conn:
                 conn.close()
 
     def get_consultas_by_cedula(self, cedula: str):
-
         conn = None
-
         try:
-
             conn = get_db_connection()
             cursor = conn.cursor()
-
+    
             query = """
                 SELECT
                     c.id_consulta,
@@ -166,49 +173,40 @@ class ConsultaController:
                     c.fecha_salida,
                     c.motivo_consulta,
                     c.diagnostico,
-                    c.observaciones
+                    c.observaciones,
+                    e.primer_nombre,
+                    e.primer_apellido
                 FROM consulta c
                 INNER JOIN estudiante e
                     ON c.id_estudiante = e.id_estudiante
                 WHERE e.numero_identificacion = %s
                 ORDER BY c.fecha_entrada DESC
             """
-
+    
             cursor.execute(query, (cedula,))
             rows = cursor.fetchall()
-
+    
             consultas = []
-
             for row in rows:
-
                 consulta = {
                     "id_consulta": row[0],
                     "fecha_entrada": row[1],
                     "fecha_salida": row[2],
                     "motivo_consulta": row[3],
                     "diagnostico": row[4],
-                    "observaciones": row[5]
+                    "observaciones": row[5],
+                    "primer_nombre": row[6],
+                    "primer_apellido": row[7]
                 }
-
                 consultas.append(consulta)
-
+    
             return consultas
-
+    
         except Exception as e:
-
-            print("ERROR GET CONSULTAS:", e)
-
-            raise HTTPException(
-                status_code=500,
-                detail="Error obteniendo consultas"
-            )
-
+            raise HTTPException(status_code=500, detail="Error obteniendo consultas")
         finally:
-
             if conn:
                 conn.close()
-
-    
 
     def update_consulta(self, id_consulta: int, consulta: Consulta):
 
