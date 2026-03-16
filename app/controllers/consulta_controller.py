@@ -55,41 +55,55 @@ class ConsultaController:
     def get_consulta(self, id_consulta: int):
 
         conn = None
-
+    
         try:
-
+    
             conn = get_db_connection()
             cursor = conn.cursor()
-
-            cursor.execute(
-                "SELECT * FROM consulta WHERE id_consulta = %s",
-                (id_consulta,)
-            )
-
-            result = cursor.fetchone()
-
-            if not result:
-                raise HTTPException(status_code=404, detail="Consulta no encontrada")
-
-            content = {
-                "id_consulta": result[0],
-                "id_estudiante": result[1],
-                "id_usuario": result[2],
-                "diagnostico": result[3],
-                "observaciones": result[4],
-                "motivo_consulta": result[5],
-                "fecha_entrada": result[6],
-                "fecha_salida": result[7]
-            }
-
-            return jsonable_encoder(content)
-
-        except psycopg2.Error as err:
-
-            raise HTTPException(status_code=500, detail=str(err))
-
+    
+            cursor.execute("""
+                SELECT 
+                    c.id_consulta,
+                    c.id_estudiante,
+                    c.id_usuario,
+                    c.motivo_consulta,
+                    c.diagnostico,
+                    c.observaciones,
+                    c.fecha_entrada,
+                    c.fecha_salida,
+                    s.presion_arterial,
+                    s.temperatura,
+                    s.peso,
+                    s.altura,
+                    s.saturacion_oxigeno,
+                    s.frecuencia_cardiaca,
+                    s.tipo_sangre
+                FROM consulta c
+                LEFT JOIN signos_vitales s
+                ON c.id_consulta = s.id_consulta
+                WHERE c.id_consulta = %s
+            """, (id_consulta,))
+    
+            consulta = cursor.fetchone()
+    
+            if consulta:
+    
+                columns = [col[0] for col in cursor.description]
+    
+                resultado = dict(zip(columns, consulta))
+    
+                return {"resultado": resultado}
+    
+            else:
+    
+                return {"resultado": None}
+    
+        except Exception as e:
+    
+            raise HTTPException(status_code=500, detail=str(e))
+    
         finally:
-
+    
             if conn:
                 conn.close()
 
