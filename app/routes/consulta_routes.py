@@ -13,10 +13,12 @@ async def create_consulta(consulta: Consulta):
     return rpta
 
 
-@router.get("/get_consulta/{id_consulta}", response_model=Consulta)
+@consulta_router.get("/get_consulta/{id_consulta}")
 async def get_consulta(id_consulta: int):
-    rpta = nueva_consulta.get_consulta(id_consulta)
-    return rpta
+
+    controller = ConsultaController()
+
+    return controller.get_consulta(id_consulta)
 
 @router.get("/get_consultas_estudiante/{id_estudiante}")
 async def get_consultas_estudiante(id_estudiante: int):
