@@ -13,7 +13,7 @@ async def create_consulta(consulta: Consulta):
     return rpta
 
 
-@consulta_router.get("/get_consulta/{id_consulta}")
+@router.get("/get_consulta/{id_consulta}")
 async def get_consulta(id_consulta: int):
 
     controller = ConsultaController()
