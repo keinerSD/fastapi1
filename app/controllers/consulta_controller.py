@@ -146,38 +146,47 @@ class ConsultaController:
             cursor = conn.cursor()
 
             query = """
-                SELECT 
+                SELECT
                     c.id_consulta,
                     c.fecha_entrada,
                     c.fecha_salida,
                     c.motivo_consulta,
                     c.diagnostico,
                     c.observaciones
-                FROM consultas c
-                JOIN estudiantes e 
+                FROM consulta c
+                INNER JOIN estudiante e
                     ON c.id_estudiante = e.id_estudiante
                 WHERE e.numero_identificacion = %s
                 ORDER BY c.fecha_entrada DESC
             """
 
             cursor.execute(query, (cedula,))
-
             rows = cursor.fetchall()
 
-            columnas = [desc[0] for desc in cursor.description]
+            consultas = []
 
-            consultas = [
-                dict(zip(columnas, row))
-                for row in rows
-            ]
+            for row in rows:
 
-            return jsonable_encoder(consultas)
+                consulta = {
+                    "id_consulta": row[0],
+                    "fecha_entrada": row[1],
+                    "fecha_salida": row[2],
+                    "motivo_consulta": row[3],
+                    "diagnostico": row[4],
+                    "observaciones": row[5]
+                }
+
+                consultas.append(consulta)
+
+            return consultas
 
         except Exception as e:
 
+            print("ERROR GET CONSULTAS:", e)
+
             raise HTTPException(
                 status_code=500,
-                detail=f"Error obteniendo consultas: {str(e)}"
+                detail="Error obteniendo consultas"
             )
 
         finally:
