@@ -23,7 +23,7 @@ async def get_consultas_estudiante(id_estudiante: int):
     rpta = nueva_consulta.get_consultas_estudiante(id_estudiante)
     return rpta
 
-@router.get("/consultas/get_consultas/{cedula}")
+@router.get("/get_consultas/{cedula}")
 async def get_consultas(cedula: str):
 
     resultado = consulta_controller.get_consultas_by_cedula(cedula)
