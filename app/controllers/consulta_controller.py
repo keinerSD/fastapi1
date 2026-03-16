@@ -19,7 +19,7 @@ class ConsultaController:
             cursor.execute(
                 """INSERT INTO consulta
                 (id_estudiante, id_usuario, diagnostico, observaciones, motivo_consulta, fecha_entrada, fecha_salida)
-                VALUES (%s,%s,%s,%s,%s,%s,%s)""",
+                VALUES (%s,%s,%s,%s,%s,%s,%s)RETURNING id_consulta""",
 
                 (
                     consulta.id_estudiante,
