@@ -31,6 +31,7 @@ class ConsultaController:
                     consulta.fecha_salida
                 )
             )
+            id_consulta = cursor.fetchone()[0]
 
             conn.commit()
 
