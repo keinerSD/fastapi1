@@ -8,40 +8,32 @@ from app.models.derivacion_model import Derivacion
 class DerivacionController:
 
     def create_derivacion(self, derivacion: Derivacion):
-
         conn = None
-
         try:
-
             conn = get_db_connection()
             cursor = conn.cursor()
-
+    
             cursor.execute(
                 """INSERT INTO derivacion
-                (id_consulta, id_clinica, razon, fecha)
-                VALUES (%s,%s,%s,%s)""",
-
+                (id_emergencia, id_clinica, razon, fecha)
+                VALUES (%s, %s, %s, %s)""",
                 (
-                    derivacion.id_consulta,
+                    derivacion.id_emergencia,   # ahora apunta a emergencia
                     derivacion.id_clinica,
                     derivacion.razon,
                     derivacion.fecha
                 )
             )
-
+    
             conn.commit()
-
             return {"resultado": "Derivación creada correctamente"}
-
+    
         except psycopg2.Error as err:
-
             if conn:
                 conn.rollback()
-
             raise HTTPException(status_code=500, detail=str(err))
-
+    
         finally:
-
             if conn:
                 conn.close()
 
