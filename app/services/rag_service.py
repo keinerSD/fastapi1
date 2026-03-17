@@ -12,15 +12,9 @@ from deep_translator import GoogleTranslator
 
 load_dotenv()
 
-print("Loading embedding model...")
-embedding_model = SentenceTransformer("all-MiniLM-L6-v2")
-
-print("Loading FAISS index...")
-index = faiss.read_index("data/medical_index.faiss")
-
-print("Loading dataset...")
-with open("data/medical_diseases.json", "r", encoding="utf-8") as f:
-    dataset = json.load(f)
+embedding_model = None
+index = None
+dataset = None
 
 print("Connecting to Groq...")
 client = OpenAI(
@@ -28,12 +22,38 @@ client = OpenAI(
     base_url="https://api.groq.com/openai/v1"
 )
 
-print("RAG system ready.")
+def load_rag():
+    global embedding_model, index, dataset
+    try:
+        if embedding_model is None:
+            embedding_model = SentenceTransformer("all-MiniLM-L6-v2")
+        
+        if index is None:
+            index = faiss.read_index("data/medical_index.faiss")
+
+        if dataset is None:
+            with open("data/medical_diseases.json", "r", encoding="utf-8") as f:
+                dataset = json.load(f)
+
+    except Exception as e:
+        print("Error loading RAG:", e)
+
+
+print("RAG service initialized (lazy loading enabled)")
 
 
 # FUNCIÓN PRINCIPAL RAG
 
 def medical_rag_query(query: str):
+
+    load_rag()
+
+    if embedding_model is None or index is None or dataset is None:
+        return {
+            "disease": None,
+            "explanation": "El sistema no está disponible en este momento.",
+            "recommendation": "Intente más tarde."
+        }
 
     # traducir síntomas a inglés
     query_en = GoogleTranslator(source="auto", target="en").translate(query)
@@ -81,7 +101,6 @@ def medical_rag_query(query: str):
 
     best_distance = distances[0][0]
 
-    print(best_distance)
     if best_distance > 1.1:
         return {
             "disease": None,
