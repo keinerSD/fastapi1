@@ -21,7 +21,8 @@ app = FastAPI()
 origins = [
     "http://localhost",
     "http://localhost:5173",
-    "https://upgraded-space-lamp-g459wvwjvw6639vvj-5173.app.github.dev"
+    "https://upgraded-space-lamp-g459wvwjvw6639vvj-5173.app.github.dev",
+    "https://fronted-ten-iota.vercel.app/"
 ]
 
 app.add_middleware(
