@@ -13,7 +13,7 @@ from app.routes.usuario_routes import router as usuario_router
 from app.routes.facultad_routes import router as facultad_router
 from app.routes.programa_routes import router as programa_router
 from app.routes.auth_routes import router as auth_router
-from app.routes.disease_routes import router as disease_router
+#from app.routes.disease_routes import router as disease_router
 #from app.routes.rag_routes import router as rag_router
 
 app = FastAPI()
@@ -45,7 +45,7 @@ app.include_router(usuario_router)
 app.include_router(facultad_router)
 app.include_router(programa_router)
 app.include_router(auth_router)
-app.include_router(disease_router)
+#app.include_router(disease_router)
 #app.include_router(rag_router)
 
 
