@@ -16,10 +16,10 @@ print("Loading embedding model...")
 embedding_model = SentenceTransformer("all-MiniLM-L6-v2")
 
 print("Loading FAISS index...")
-index = faiss.read_index("app/data/medical_index.faiss")
+index = faiss.read_index("data/medical_index.faiss")
 
 print("Loading dataset...")
-with open("app/data/medical_diseases.json", "r", encoding="utf-8") as f:
+with open("data/medical_diseases.json", "r", encoding="utf-8") as f:
     dataset = json.load(f)
 
 print("Connecting to Groq...")
