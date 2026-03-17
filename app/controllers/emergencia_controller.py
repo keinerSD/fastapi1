@@ -8,19 +8,15 @@ from app.models.emergencia_model import Emergencia
 class EmergenciaController:
 
     def create_emergencia(self, emergencia: Emergencia):
-
         conn = None
-
         try:
-
             conn = get_db_connection()
             cursor = conn.cursor()
-
+    
             cursor.execute(
                 """INSERT INTO emergencia
                 (id_usuario, id_estudiante, fecha, descripcion, atencion_prestada)
-                VALUES (%s,%s,%s,%s,%s)""",
-
+                VALUES (%s, %s, %s, %s, %s) RETURNING id_emergencia""",
                 (
                     emergencia.id_usuario,
                     emergencia.id_estudiante,
@@ -29,20 +25,16 @@ class EmergenciaController:
                     emergencia.atencion_prestada
                 )
             )
-
+    
+            id_emergencia = cursor.fetchone()[0]
             conn.commit()
-
-            return {"resultado": "Emergencia registrada correctamente"}
-
+            return {"id_emergencia": id_emergencia}
+    
         except psycopg2.Error as err:
-
             if conn:
                 conn.rollback()
-
             raise HTTPException(status_code=500, detail=str(err))
-
         finally:
-
             if conn:
                 conn.close()
 
