@@ -4,7 +4,8 @@ psycopg2-binary
 pydantic
 python-dotenv
 faiss-cpu
-sentence_transformer
+sentence-transformers
+torch
 deep-translator
 openai
 numpy
