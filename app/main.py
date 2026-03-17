@@ -46,7 +46,7 @@ app.include_router(facultad_router)
 app.include_router(programa_router)
 app.include_router(auth_router)
 app.include_router(disease_router)
-app.include_router(rag_router)
+#app.include_router(rag_router)
 
 
 
