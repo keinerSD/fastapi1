@@ -22,12 +22,12 @@ origins = [
     "http://localhost",
     "http://localhost:5173",
     "https://upgraded-space-lamp-g459wvwjvw6639vvj-5173.app.github.dev",
-    "https://fronted-ten-iota.vercel.app/"
+    "https://fronted-ten-iota.vercel.app"
 ]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # o ["*"] para permitir todos
+    allow_origins=origins,  # o ["*"] para permitir todos
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
