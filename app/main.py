@@ -14,7 +14,7 @@ from app.routes.facultad_routes import router as facultad_router
 from app.routes.programa_routes import router as programa_router
 from app.routes.auth_routes import router as auth_router
 from app.routes.disease_routes import router as disease_router
-from app.routes.rag_routes import router as rag_router
+#from app.routes.rag_routes import router as rag_router
 
 app = FastAPI()
 
