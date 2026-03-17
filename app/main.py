@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 # ROUTERS
-from app.routes.estudiante_routes import router as estudiante_router
+from app.routes.estudiante_routes import router as estudiante_router 
 from app.routes.consulta_routes import router as consulta_router
 from app.routes.clinica_routes import router as clinica_router
 from app.routes.signos_vitales_routes import router as signos_vitales_router
@@ -13,10 +13,13 @@ from app.routes.usuario_routes import router as usuario_router
 from app.routes.facultad_routes import router as facultad_router
 from app.routes.programa_routes import router as programa_router
 from app.routes.auth_routes import router as auth_router
+from app.routes.disease_routes import router as disease_router
+from app.routes.rag_routes import router as rag_router
 
 app = FastAPI()
 
 origins = [
+    "http://localhost",
     "http://localhost:5173",
     "https://upgraded-space-lamp-g459wvwjvw6639vvj-5173.app.github.dev"
 ]
@@ -42,6 +45,8 @@ app.include_router(usuario_router)
 app.include_router(facultad_router)
 app.include_router(programa_router)
 app.include_router(auth_router)
+app.include_router(disease_router)
+app.include_router(rag_router)
 
 
 

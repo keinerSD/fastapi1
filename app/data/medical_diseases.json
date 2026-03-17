@@ -1,0 +1,842 @@
+[
+  {
+    "text": "Disease: Asthma. Section: description. Asthma is a chronic inflammatory disease of the airways that causes narrowing and swelling of the bronchial tubes, making breathing difficult.",
+    "metadata": {
+      "disease": "Asthma",
+      "section": "description"
+    }
+  },
+  {
+    "text": "Disease: Asthma. Section: symptoms. Wheezing, shortness of breath, chest tightness, coughing especially at night or during exercise.",
+    "metadata": {
+      "disease": "Asthma",
+      "section": "symptoms"
+    }
+  },
+  {
+    "text": "Disease: Asthma. Section: treatment. Treatment includes inhaled bronchodilators for quick relief and inhaled corticosteroids for long-term control.",
+    "metadata": {
+      "disease": "Asthma",
+      "section": "treatment"
+    }
+  },
+  {
+    "text": "Disease: Diabetes. Section: description. Diabetes mellitus is a metabolic disorder characterized by high blood glucose due to problems with insulin production or insulin use.",
+    "metadata": {
+      "disease": "Diabetes",
+      "section": "description"
+    }
+  },
+  {
+    "text": "Disease: Diabetes. Section: symptoms. Frequent urination, excessive thirst, increased hunger, fatigue, blurred vision, slow wound healing.",
+    "metadata": {
+      "disease": "Diabetes",
+      "section": "symptoms"
+    }
+  },
+  {
+    "text": "Disease: Diabetes. Section: treatment. Treatment involves blood sugar monitoring, diet control, exercise, oral medications, or insulin therapy.",
+    "metadata": {
+      "disease": "Diabetes",
+      "section": "treatment"
+    }
+  },
+  {
+    "text": "Disease: Influenza. Section: description. Influenza is a contagious viral infection that affects the respiratory system including the nose, throat, and lungs.",
+    "metadata": {
+      "disease": "Influenza",
+      "section": "description"
+    }
+  },
+  {
+    "text": "Disease: Influenza. Section: symptoms. Fever, chills, muscle aches, cough, sore throat, fatigue, and headache.",
+    "metadata": {
+      "disease": "Influenza",
+      "section": "symptoms"
+    }
+  },
+  {
+    "text": "Disease: Influenza. Section: treatment. Rest, fluids, fever reducers, and antiviral medications in certain cases.",
+    "metadata": {
+      "disease": "Influenza",
+      "section": "treatment"
+    }
+  },
+  {
+    "text": "Disease: Pneumonia. Section: description. Pneumonia is an infection that inflames the air sacs in the lungs, which may fill with fluid or pus.",
+    "metadata": {
+      "disease": "Pneumonia",
+      "section": "description"
+    }
+  },
+  {
+    "text": "Disease: Pneumonia. Section: symptoms. Cough with phlegm, fever, chills, shortness of breath, chest pain while breathing.",
+    "metadata": {
+      "disease": "Pneumonia",
+      "section": "symptoms"
+    }
+  },
+  {
+    "text": "Disease: Pneumonia. Section: treatment. Treatment depends on cause and may include antibiotics, antivirals, oxygen therapy, and rest.",
+    "metadata": {
+      "disease": "Pneumonia",
+      "section": "treatment"
+    }
+  },
+  {
+    "text": "Disease: Migraine. Section: description. Migraine is a neurological disorder characterized by recurrent severe headaches often accompanied by sensory disturbances.",
+    "metadata": {
+      "disease": "Migraine",
+      "section": "description"
+    }
+  },
+  {
+    "text": "Disease: Migraine. Section: symptoms. Throbbing head pain, nausea, vomiting, sensitivity to light and sound, visual aura.",
+    "metadata": {
+      "disease": "Migraine",
+      "section": "symptoms"
+    }
+  },
+  {
+    "text": "Disease: Migraine. Section: treatment. Pain relievers, triptan medications, preventive drugs, and avoiding triggers.",
+    "metadata": {
+      "disease": "Migraine",
+      "section": "treatment"
+    }
+  },
+  {
+    "text": "Disease: Hypertension. Section: description. Hypertension is a chronic condition where blood pressure in the arteries remains persistently elevated.",
+    "metadata": {
+      "disease": "Hypertension",
+      "section": "description"
+    }
+  },
+  {
+    "text": "Disease: Hypertension. Section: symptoms. Often asymptomatic but may include headaches, dizziness, nosebleeds, or shortness of breath.",
+    "metadata": {
+      "disease": "Hypertension",
+      "section": "symptoms"
+    }
+  },
+  {
+    "text": "Disease: Hypertension. Section: treatment. Lifestyle changes such as reduced salt intake, exercise, weight control, and antihypertensive medications.",
+    "metadata": {
+      "disease": "Hypertension",
+      "section": "treatment"
+    }
+  },
+  {
+    "text": "Disease: Bronchitis. Section: description. Bronchitis is inflammation of the bronchial tubes that carry air to and from the lungs.",
+    "metadata": {
+      "disease": "Bronchitis",
+      "section": "description"
+    }
+  },
+  {
+    "text": "Disease: Bronchitis. Section: symptoms. Persistent cough with mucus, fatigue, chest discomfort, mild fever, shortness of breath.",
+    "metadata": {
+      "disease": "Bronchitis",
+      "section": "symptoms"
+    }
+  },
+  {
+    "text": "Disease: Bronchitis. Section: treatment. Rest, fluids, cough medicine, bronchodilators, and avoiding smoking.",
+    "metadata": {
+      "disease": "Bronchitis",
+      "section": "treatment"
+    }
+  },
+  {
+    "text": "Disease: Gastroenteritis. Section: description. Gastroenteritis is inflammation of the stomach and intestines usually caused by viral or bacterial infection.",
+    "metadata": {
+      "disease": "Gastroenteritis",
+      "section": "description"
+    }
+  },
+  {
+    "text": "Disease: Gastroenteritis. Section: symptoms. Diarrhea, vomiting, stomach cramps, nausea, fever, dehydration.",
+    "metadata": {
+      "disease": "Gastroenteritis",
+      "section": "symptoms"
+    }
+  },
+  {
+    "text": "Disease: Gastroenteritis. Section: treatment. Hydration with oral rehydration solutions, rest, and symptom control.",
+    "metadata": {
+      "disease": "Gastroenteritis",
+      "section": "treatment"
+    }
+  },
+  {
+    "text": "Disease: Appendicitis. Section: description. Appendicitis is inflammation of the appendix that can lead to rupture if untreated.",
+    "metadata": {
+      "disease": "Appendicitis",
+      "section": "description"
+    }
+  },
+  {
+    "text": "Disease: Appendicitis. Section: symptoms. Pain starting near the navel and moving to lower right abdomen, nausea, vomiting, fever.",
+    "metadata": {
+      "disease": "Appendicitis",
+      "section": "symptoms"
+    }
+  },
+  {
+    "text": "Disease: Appendicitis. Section: treatment. Surgical removal of the appendix and antibiotics.",
+    "metadata": {
+      "disease": "Appendicitis",
+      "section": "treatment"
+    }
+  },
+  {
+    "text": "Disease: Anemia. Section: description. Anemia is a condition in which the blood lacks enough healthy red blood cells to carry oxygen efficiently.",
+    "metadata": {
+      "disease": "Anemia",
+      "section": "description"
+    }
+  },
+  {
+    "text": "Disease: Anemia. Section: symptoms. Fatigue, pale skin, weakness, dizziness, shortness of breath.",
+    "metadata": {
+      "disease": "Anemia",
+      "section": "symptoms"
+    }
+  },
+  {
+    "text": "Disease: Anemia. Section: treatment. Treatment may include iron supplements, vitamin B12, folate, or treating underlying causes.",
+    "metadata": {
+      "disease": "Anemia",
+      "section": "treatment"
+    }
+  },
+  {
+    "text": "Disease: Sinusitis. Section: description. Sinusitis is inflammation of the sinuses often caused by infection or allergies.",
+    "metadata": {
+      "disease": "Sinusitis",
+      "section": "description"
+    }
+  },
+  {
+    "text": "Disease: Sinusitis. Section: symptoms. Facial pain, nasal congestion, thick nasal discharge, headache, reduced sense of smell.",
+    "metadata": {
+      "disease": "Sinusitis",
+      "section": "symptoms"
+    }
+  },
+  {
+    "text": "Disease: Sinusitis. Section: treatment. Decongestants, nasal sprays, pain relievers, and sometimes antibiotics.",
+    "metadata": {
+      "disease": "Sinusitis",
+      "section": "treatment"
+    }
+  },
+  {
+    "text": "Disease: Otitis Media. Section: description. Otitis media is an infection or inflammation of the middle ear.",
+    "metadata": {
+      "disease": "Otitis Media",
+      "section": "description"
+    }
+  },
+  {
+    "text": "Disease: Otitis Media. Section: symptoms. Ear pain, fever, hearing difficulty, fluid drainage from the ear.",
+    "metadata": {
+      "disease": "Otitis Media",
+      "section": "symptoms"
+    }
+  },
+  {
+    "text": "Disease: Otitis Media. Section: treatment. Pain relievers and sometimes antibiotics.",
+    "metadata": {
+      "disease": "Otitis Media",
+      "section": "treatment"
+    }
+  },
+  {
+    "text": "Disease: Conjunctivitis. Section: description. Conjunctivitis is inflammation of the conjunctiva, the thin membrane covering the white of the eye.",
+    "metadata": {
+      "disease": "Conjunctivitis",
+      "section": "description"
+    }
+  },
+  {
+    "text": "Disease: Conjunctivitis. Section: symptoms. Red eyes, itching, tearing, discharge, crusting of eyelids.",
+    "metadata": {
+      "disease": "Conjunctivitis",
+      "section": "symptoms"
+    }
+  },
+  {
+    "text": "Disease: Conjunctivitis. Section: treatment. Antibiotic eye drops for bacterial cases or antihistamines for allergic cases.",
+    "metadata": {
+      "disease": "Conjunctivitis",
+      "section": "treatment"
+    }
+  },
+  {
+    "text": "Disease: Urinary Tract Infection. Section: description. A urinary tract infection occurs when bacteria infect the bladder, urethra, or kidneys.",
+    "metadata": {
+      "disease": "Urinary Tract Infection",
+      "section": "description"
+    }
+  },
+  {
+    "text": "Disease: Urinary Tract Infection. Section: symptoms. Burning sensation during urination, frequent urge to urinate, cloudy urine, pelvic pain.",
+    "metadata": {
+      "disease": "Urinary Tract Infection",
+      "section": "symptoms"
+    }
+  },
+  {
+    "text": "Disease: Urinary Tract Infection. Section: treatment. Antibiotics and increased fluid intake.",
+    "metadata": {
+      "disease": "Urinary Tract Infection",
+      "section": "treatment"
+    }
+  },
+  {
+    "text": "Disease: Kidney Stones. Section: description. Kidney stones are hard mineral deposits that form inside the kidneys.",
+    "metadata": {
+      "disease": "Kidney Stones",
+      "section": "description"
+    }
+  },
+  {
+    "text": "Disease: Kidney Stones. Section: symptoms. Severe flank pain, blood in urine, nausea, vomiting, painful urination.",
+    "metadata": {
+      "disease": "Kidney Stones",
+      "section": "symptoms"
+    }
+  },
+  {
+    "text": "Disease: Kidney Stones. Section: treatment. Pain management, hydration, and sometimes procedures to remove stones.",
+    "metadata": {
+      "disease": "Kidney Stones",
+      "section": "treatment"
+    }
+  },
+  {
+    "text": "Disease: Gastritis. Section: description. Gastritis is inflammation of the stomach lining often caused by infection, alcohol use, or medications.",
+    "metadata": {
+      "disease": "Gastritis",
+      "section": "description"
+    }
+  },
+  {
+    "text": "Disease: Gastritis. Section: symptoms. Upper abdominal pain, nausea, vomiting, bloating, loss of appetite.",
+    "metadata": {
+      "disease": "Gastritis",
+      "section": "symptoms"
+    }
+  },
+  {
+    "text": "Disease: Gastritis. Section: treatment. Antacids, proton pump inhibitors, and treatment of underlying causes.",
+    "metadata": {
+      "disease": "Gastritis",
+      "section": "treatment"
+    }
+  },
+  {
+    "text": "Disease: Peptic Ulcer. Section: description. Peptic ulcers are open sores that develop on the inner lining of the stomach or upper small intestine.",
+    "metadata": {
+      "disease": "Peptic Ulcer",
+      "section": "description"
+    }
+  },
+  {
+    "text": "Disease: Peptic Ulcer. Section: symptoms. Burning stomach pain, bloating, heartburn, nausea.",
+    "metadata": {
+      "disease": "Peptic Ulcer",
+      "section": "symptoms"
+    }
+  },
+  {
+    "text": "Disease: Peptic Ulcer. Section: treatment. Antibiotics for H. pylori infection and acid\u2011reducing medications.",
+    "metadata": {
+      "disease": "Peptic Ulcer",
+      "section": "treatment"
+    }
+  },
+  {
+    "text": "Disease: Chickenpox. Section: description. Chickenpox is a contagious viral infection caused by the varicella-zoster virus.",
+    "metadata": {
+      "disease": "Chickenpox",
+      "section": "description"
+    }
+  },
+  {
+    "text": "Disease: Chickenpox. Section: symptoms. Itchy blister-like rash, fever, fatigue, loss of appetite.",
+    "metadata": {
+      "disease": "Chickenpox",
+      "section": "symptoms"
+    }
+  },
+  {
+    "text": "Disease: Chickenpox. Section: treatment. Supportive care, antihistamines for itching, and antiviral medication in some cases.",
+    "metadata": {
+      "disease": "Chickenpox",
+      "section": "treatment"
+    }
+  },
+  {
+    "text": "Disease: Measles. Section: description. Measles is a highly contagious viral disease affecting the respiratory system and skin.",
+    "metadata": {
+      "disease": "Measles",
+      "section": "description"
+    }
+  },
+  {
+    "text": "Disease: Measles. Section: symptoms. High fever, cough, runny nose, red eyes, rash spreading across the body.",
+    "metadata": {
+      "disease": "Measles",
+      "section": "symptoms"
+    }
+  },
+  {
+    "text": "Disease: Measles. Section: treatment. Supportive care and vaccination for prevention.",
+    "metadata": {
+      "disease": "Measles",
+      "section": "treatment"
+    }
+  },
+  {
+    "text": "Disease: Mumps. Section: description. Mumps is a viral infection primarily affecting the salivary glands.",
+    "metadata": {
+      "disease": "Mumps",
+      "section": "description"
+    }
+  },
+  {
+    "text": "Disease: Mumps. Section: symptoms. Swollen cheeks, jaw pain, fever, headache, muscle aches.",
+    "metadata": {
+      "disease": "Mumps",
+      "section": "symptoms"
+    }
+  },
+  {
+    "text": "Disease: Mumps. Section: treatment. Supportive care including rest, fluids, and pain relievers.",
+    "metadata": {
+      "disease": "Mumps",
+      "section": "treatment"
+    }
+  },
+  {
+    "text": "Disease: Rubella. Section: description. Rubella is a viral infection also known as German measles.",
+    "metadata": {
+      "disease": "Rubella",
+      "section": "description"
+    }
+  },
+  {
+    "text": "Disease: Rubella. Section: symptoms. Mild fever, rash, swollen lymph nodes, joint pain.",
+    "metadata": {
+      "disease": "Rubella",
+      "section": "symptoms"
+    }
+  },
+  {
+    "text": "Disease: Rubella. Section: treatment. Supportive treatment and vaccination for prevention.",
+    "metadata": {
+      "disease": "Rubella",
+      "section": "treatment"
+    }
+  },
+  {
+    "text": "Disease: Tuberculosis. Section: description. Tuberculosis is a bacterial infection caused by Mycobacterium tuberculosis that mainly affects the lungs.",
+    "metadata": {
+      "disease": "Tuberculosis",
+      "section": "description"
+    }
+  },
+  {
+    "text": "Disease: Tuberculosis. Section: symptoms. Persistent cough, chest pain, weight loss, night sweats, fever.",
+    "metadata": {
+      "disease": "Tuberculosis",
+      "section": "symptoms"
+    }
+  },
+  {
+    "text": "Disease: Tuberculosis. Section: treatment. Long\u2011term antibiotic therapy using multiple medications.",
+    "metadata": {
+      "disease": "Tuberculosis",
+      "section": "treatment"
+    }
+  },
+  {
+    "text": "Disease: Hepatitis A. Section: description. Hepatitis A is a viral infection that causes liver inflammation and spreads through contaminated food or water.",
+    "metadata": {
+      "disease": "Hepatitis A",
+      "section": "description"
+    }
+  },
+  {
+    "text": "Disease: Hepatitis A. Section: symptoms. Fatigue, nausea, abdominal pain, jaundice, loss of appetite.",
+    "metadata": {
+      "disease": "Hepatitis A",
+      "section": "symptoms"
+    }
+  },
+  {
+    "text": "Disease: Hepatitis A. Section: treatment. Supportive care including rest and hydration.",
+    "metadata": {
+      "disease": "Hepatitis A",
+      "section": "treatment"
+    }
+  },
+  {
+    "text": "Disease: Hepatitis B. Section: description. Hepatitis B is a viral infection that attacks the liver and can become chronic.",
+    "metadata": {
+      "disease": "Hepatitis B",
+      "section": "description"
+    }
+  },
+  {
+    "text": "Disease: Hepatitis B. Section: symptoms. Fatigue, abdominal pain, jaundice, dark urine, nausea.",
+    "metadata": {
+      "disease": "Hepatitis B",
+      "section": "symptoms"
+    }
+  },
+  {
+    "text": "Disease: Hepatitis B. Section: treatment. Antiviral medications and monitoring of liver function.",
+    "metadata": {
+      "disease": "Hepatitis B",
+      "section": "treatment"
+    }
+  },
+  {
+    "text": "Disease: Malaria. Section: description. Malaria is a parasitic disease transmitted through the bite of infected mosquitoes.",
+    "metadata": {
+      "disease": "Malaria",
+      "section": "description"
+    }
+  },
+  {
+    "text": "Disease: Malaria. Section: symptoms. Fever, chills, sweating, headache, nausea, muscle pain.",
+    "metadata": {
+      "disease": "Malaria",
+      "section": "symptoms"
+    }
+  },
+  {
+    "text": "Disease: Malaria. Section: treatment. Antimalarial medications and supportive care.",
+    "metadata": {
+      "disease": "Malaria",
+      "section": "treatment"
+    }
+  },
+  {
+    "text": "Disease: Dengue. Section: description. Dengue is a mosquito\u2011borne viral infection common in tropical regions.",
+    "metadata": {
+      "disease": "Dengue",
+      "section": "description"
+    }
+  },
+  {
+    "text": "Disease: Dengue. Section: symptoms. High fever, severe headache, joint and muscle pain, rash.",
+    "metadata": {
+      "disease": "Dengue",
+      "section": "symptoms"
+    }
+  },
+  {
+    "text": "Disease: Dengue. Section: treatment. Supportive care, hydration, and fever management.",
+    "metadata": {
+      "disease": "Dengue",
+      "section": "treatment"
+    }
+  },
+  {
+    "text": "Disease: Zika. Section: description. Zika virus infection is transmitted mainly by mosquitoes and may cause mild illness.",
+    "metadata": {
+      "disease": "Zika",
+      "section": "description"
+    }
+  },
+  {
+    "text": "Disease: Zika. Section: symptoms. Fever, rash, joint pain, conjunctivitis.",
+    "metadata": {
+      "disease": "Zika",
+      "section": "symptoms"
+    }
+  },
+  {
+    "text": "Disease: Zika. Section: treatment. Rest, hydration, and symptom relief.",
+    "metadata": {
+      "disease": "Zika",
+      "section": "treatment"
+    }
+  },
+  {
+    "text": "Disease: Chikungunya. Section: description. Chikungunya is a viral disease transmitted by mosquitoes causing severe joint pain.",
+    "metadata": {
+      "disease": "Chikungunya",
+      "section": "description"
+    }
+  },
+  {
+    "text": "Disease: Chikungunya. Section: symptoms. High fever, joint pain, headache, fatigue, rash.",
+    "metadata": {
+      "disease": "Chikungunya",
+      "section": "symptoms"
+    }
+  },
+  {
+    "text": "Disease: Chikungunya. Section: treatment. Supportive care including pain relievers and fluids.",
+    "metadata": {
+      "disease": "Chikungunya",
+      "section": "treatment"
+    }
+  },
+  {
+    "text": "Disease: Food Poisoning. Section: description. Food poisoning occurs after consuming contaminated food or drinks.",
+    "metadata": {
+      "disease": "Food Poisoning",
+      "section": "description"
+    }
+  },
+  {
+    "text": "Disease: Food Poisoning. Section: symptoms. Nausea, vomiting, diarrhea, stomach cramps, fever.",
+    "metadata": {
+      "disease": "Food Poisoning",
+      "section": "symptoms"
+    }
+  },
+  {
+    "text": "Disease: Food Poisoning. Section: treatment. Hydration, rest, and sometimes antibiotics depending on cause.",
+    "metadata": {
+      "disease": "Food Poisoning",
+      "section": "treatment"
+    }
+  },
+  {
+    "text": "Disease: Lactose Intolerance. Section: description. Lactose intolerance is the inability to digest lactose due to low levels of the enzyme lactase.",
+    "metadata": {
+      "disease": "Lactose Intolerance",
+      "section": "description"
+    }
+  },
+  {
+    "text": "Disease: Lactose Intolerance. Section: symptoms. Bloating, diarrhea, gas, stomach cramps after consuming dairy.",
+    "metadata": {
+      "disease": "Lactose Intolerance",
+      "section": "symptoms"
+    }
+  },
+  {
+    "text": "Disease: Lactose Intolerance. Section: treatment. Avoiding lactose-containing foods or using lactase supplements.",
+    "metadata": {
+      "disease": "Lactose Intolerance",
+      "section": "treatment"
+    }
+  },
+  {
+    "text": "Disease: Celiac Disease. Section: description. Celiac disease is an autoimmune disorder triggered by gluten consumption.",
+    "metadata": {
+      "disease": "Celiac Disease",
+      "section": "description"
+    }
+  },
+  {
+    "text": "Disease: Celiac Disease. Section: symptoms. Diarrhea, weight loss, bloating, fatigue, nutrient deficiencies.",
+    "metadata": {
+      "disease": "Celiac Disease",
+      "section": "symptoms"
+    }
+  },
+  {
+    "text": "Disease: Celiac Disease. Section: treatment. Strict lifelong gluten\u2011free diet.",
+    "metadata": {
+      "disease": "Celiac Disease",
+      "section": "treatment"
+    }
+  },
+  {
+    "text": "Disease: Irritable Bowel Syndrome. Section: description. IBS is a functional gastrointestinal disorder affecting bowel habits.",
+    "metadata": {
+      "disease": "Irritable Bowel Syndrome",
+      "section": "description"
+    }
+  },
+  {
+    "text": "Disease: Irritable Bowel Syndrome. Section: symptoms. Abdominal pain, bloating, diarrhea or constipation.",
+    "metadata": {
+      "disease": "Irritable Bowel Syndrome",
+      "section": "symptoms"
+    }
+  },
+  {
+    "text": "Disease: Irritable Bowel Syndrome. Section: treatment. Dietary changes, stress management, and medications.",
+    "metadata": {
+      "disease": "Irritable Bowel Syndrome",
+      "section": "treatment"
+    }
+  },
+  {
+    "text": "Disease: Crohns Disease. Section: description. Crohn's disease is a chronic inflammatory bowel disease affecting the digestive tract.",
+    "metadata": {
+      "disease": "Crohns Disease",
+      "section": "description"
+    }
+  },
+  {
+    "text": "Disease: Crohns Disease. Section: symptoms. Abdominal pain, diarrhea, weight loss, fatigue.",
+    "metadata": {
+      "disease": "Crohns Disease",
+      "section": "symptoms"
+    }
+  },
+  {
+    "text": "Disease: Crohns Disease. Section: treatment. Anti\u2011inflammatory drugs, immune suppressants, and sometimes surgery.",
+    "metadata": {
+      "disease": "Crohns Disease",
+      "section": "treatment"
+    }
+  },
+  {
+    "text": "Disease: Ulcerative Colitis. Section: description. Ulcerative colitis is an inflammatory bowel disease causing inflammation in the colon.",
+    "metadata": {
+      "disease": "Ulcerative Colitis",
+      "section": "description"
+    }
+  },
+  {
+    "text": "Disease: Ulcerative Colitis. Section: symptoms. Bloody diarrhea, abdominal pain, urgency to defecate.",
+    "metadata": {
+      "disease": "Ulcerative Colitis",
+      "section": "symptoms"
+    }
+  },
+  {
+    "text": "Disease: Ulcerative Colitis. Section: treatment. Anti\u2011inflammatory medications and immune suppressants.",
+    "metadata": {
+      "disease": "Ulcerative Colitis",
+      "section": "treatment"
+    }
+  },
+  {
+    "text": "Disease: Gallstones. Section: description. Gallstones are hardened deposits of digestive fluid in the gallbladder.",
+    "metadata": {
+      "disease": "Gallstones",
+      "section": "description"
+    }
+  },
+  {
+    "text": "Disease: Gallstones. Section: symptoms. Sudden abdominal pain, nausea, vomiting, pain after fatty meals.",
+    "metadata": {
+      "disease": "Gallstones",
+      "section": "symptoms"
+    }
+  },
+  {
+    "text": "Disease: Gallstones. Section: treatment. Pain management or surgical removal of the gallbladder.",
+    "metadata": {
+      "disease": "Gallstones",
+      "section": "treatment"
+    }
+  },
+  {
+    "text": "Disease: Pancreatitis. Section: description. Pancreatitis is inflammation of the pancreas often related to gallstones or alcohol use.",
+    "metadata": {
+      "disease": "Pancreatitis",
+      "section": "description"
+    }
+  },
+  {
+    "text": "Disease: Pancreatitis. Section: symptoms. Severe abdominal pain, nausea, vomiting, fever.",
+    "metadata": {
+      "disease": "Pancreatitis",
+      "section": "symptoms"
+    }
+  },
+  {
+    "text": "Disease: Pancreatitis. Section: treatment. Hospital care, fasting, IV fluids, and treating the cause.",
+    "metadata": {
+      "disease": "Pancreatitis",
+      "section": "treatment"
+    }
+  },
+  {
+    "text": "Disease: Heart Failure. Section: description. Heart failure occurs when the heart cannot pump blood efficiently to meet body needs.",
+    "metadata": {
+      "disease": "Heart Failure",
+      "section": "description"
+    }
+  },
+  {
+    "text": "Disease: Heart Failure. Section: symptoms. Shortness of breath, fatigue, swelling of legs, rapid heartbeat.",
+    "metadata": {
+      "disease": "Heart Failure",
+      "section": "symptoms"
+    }
+  },
+  {
+    "text": "Disease: Heart Failure. Section: treatment. Medications, lifestyle changes, and sometimes medical devices.",
+    "metadata": {
+      "disease": "Heart Failure",
+      "section": "treatment"
+    }
+  },
+  {
+    "text": "Disease: Coronary Artery Disease. Section: description. Coronary artery disease results from plaque buildup in coronary arteries reducing blood flow to the heart.",
+    "metadata": {
+      "disease": "Coronary Artery Disease",
+      "section": "description"
+    }
+  },
+  {
+    "text": "Disease: Coronary Artery Disease. Section: symptoms. Chest pain, shortness of breath, fatigue during exertion.",
+    "metadata": {
+      "disease": "Coronary Artery Disease",
+      "section": "symptoms"
+    }
+  },
+  {
+    "text": "Disease: Coronary Artery Disease. Section: treatment. Lifestyle changes, medications, and sometimes stents or surgery.",
+    "metadata": {
+      "disease": "Coronary Artery Disease",
+      "section": "treatment"
+    }
+  },
+  {
+    "text": "Disease: Stroke. Section: description. Stroke occurs when blood flow to part of the brain is interrupted or reduced.",
+    "metadata": {
+      "disease": "Stroke",
+      "section": "description"
+    }
+  },
+  {
+    "text": "Disease: Stroke. Section: symptoms. Sudden weakness, trouble speaking, facial drooping, vision problems.",
+    "metadata": {
+      "disease": "Stroke",
+      "section": "symptoms"
+    }
+  },
+  {
+    "text": "Disease: Stroke. Section: treatment. Emergency treatment, clot\u2011dissolving drugs, rehabilitation.",
+    "metadata": {
+      "disease": "Stroke",
+      "section": "treatment"
+    }
+  },
+  {
+    "text": "Disease: Epilepsy. Section: description. Epilepsy is a neurological disorder characterized by recurrent seizures.",
+    "metadata": {
+      "disease": "Epilepsy",
+      "section": "description"
+    }
+  },
+  {
+    "text": "Disease: Epilepsy. Section: symptoms. Seizures, temporary confusion, staring spells, loss of consciousness.",
+    "metadata": {
+      "disease": "Epilepsy",
+      "section": "symptoms"
+    }
+  },
+  {
+    "text": "Disease: Epilepsy. Section: treatment. Anti\u2011seizure medications and sometimes surgery.",
+    "metadata": {
+      "disease": "Epilepsy",
+      "section": "treatment"
+    }
+  }
+]

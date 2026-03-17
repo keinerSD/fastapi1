@@ -1,0 +1,482 @@
+[
+  {
+    "disease": "Asthma",
+    "section": "description"
+  },
+  {
+    "disease": "Asthma",
+    "section": "symptoms"
+  },
+  {
+    "disease": "Asthma",
+    "section": "treatment"
+  },
+  {
+    "disease": "Diabetes",
+    "section": "description"
+  },
+  {
+    "disease": "Diabetes",
+    "section": "symptoms"
+  },
+  {
+    "disease": "Diabetes",
+    "section": "treatment"
+  },
+  {
+    "disease": "Influenza",
+    "section": "description"
+  },
+  {
+    "disease": "Influenza",
+    "section": "symptoms"
+  },
+  {
+    "disease": "Influenza",
+    "section": "treatment"
+  },
+  {
+    "disease": "Pneumonia",
+    "section": "description"
+  },
+  {
+    "disease": "Pneumonia",
+    "section": "symptoms"
+  },
+  {
+    "disease": "Pneumonia",
+    "section": "treatment"
+  },
+  {
+    "disease": "Migraine",
+    "section": "description"
+  },
+  {
+    "disease": "Migraine",
+    "section": "symptoms"
+  },
+  {
+    "disease": "Migraine",
+    "section": "treatment"
+  },
+  {
+    "disease": "Hypertension",
+    "section": "description"
+  },
+  {
+    "disease": "Hypertension",
+    "section": "symptoms"
+  },
+  {
+    "disease": "Hypertension",
+    "section": "treatment"
+  },
+  {
+    "disease": "Bronchitis",
+    "section": "description"
+  },
+  {
+    "disease": "Bronchitis",
+    "section": "symptoms"
+  },
+  {
+    "disease": "Bronchitis",
+    "section": "treatment"
+  },
+  {
+    "disease": "Gastroenteritis",
+    "section": "description"
+  },
+  {
+    "disease": "Gastroenteritis",
+    "section": "symptoms"
+  },
+  {
+    "disease": "Gastroenteritis",
+    "section": "treatment"
+  },
+  {
+    "disease": "Appendicitis",
+    "section": "description"
+  },
+  {
+    "disease": "Appendicitis",
+    "section": "symptoms"
+  },
+  {
+    "disease": "Appendicitis",
+    "section": "treatment"
+  },
+  {
+    "disease": "Anemia",
+    "section": "description"
+  },
+  {
+    "disease": "Anemia",
+    "section": "symptoms"
+  },
+  {
+    "disease": "Anemia",
+    "section": "treatment"
+  },
+  {
+    "disease": "Sinusitis",
+    "section": "description"
+  },
+  {
+    "disease": "Sinusitis",
+    "section": "symptoms"
+  },
+  {
+    "disease": "Sinusitis",
+    "section": "treatment"
+  },
+  {
+    "disease": "Otitis Media",
+    "section": "description"
+  },
+  {
+    "disease": "Otitis Media",
+    "section": "symptoms"
+  },
+  {
+    "disease": "Otitis Media",
+    "section": "treatment"
+  },
+  {
+    "disease": "Conjunctivitis",
+    "section": "description"
+  },
+  {
+    "disease": "Conjunctivitis",
+    "section": "symptoms"
+  },
+  {
+    "disease": "Conjunctivitis",
+    "section": "treatment"
+  },
+  {
+    "disease": "Urinary Tract Infection",
+    "section": "description"
+  },
+  {
+    "disease": "Urinary Tract Infection",
+    "section": "symptoms"
+  },
+  {
+    "disease": "Urinary Tract Infection",
+    "section": "treatment"
+  },
+  {
+    "disease": "Kidney Stones",
+    "section": "description"
+  },
+  {
+    "disease": "Kidney Stones",
+    "section": "symptoms"
+  },
+  {
+    "disease": "Kidney Stones",
+    "section": "treatment"
+  },
+  {
+    "disease": "Gastritis",
+    "section": "description"
+  },
+  {
+    "disease": "Gastritis",
+    "section": "symptoms"
+  },
+  {
+    "disease": "Gastritis",
+    "section": "treatment"
+  },
+  {
+    "disease": "Peptic Ulcer",
+    "section": "description"
+  },
+  {
+    "disease": "Peptic Ulcer",
+    "section": "symptoms"
+  },
+  {
+    "disease": "Peptic Ulcer",
+    "section": "treatment"
+  },
+  {
+    "disease": "Chickenpox",
+    "section": "description"
+  },
+  {
+    "disease": "Chickenpox",
+    "section": "symptoms"
+  },
+  {
+    "disease": "Chickenpox",
+    "section": "treatment"
+  },
+  {
+    "disease": "Measles",
+    "section": "description"
+  },
+  {
+    "disease": "Measles",
+    "section": "symptoms"
+  },
+  {
+    "disease": "Measles",
+    "section": "treatment"
+  },
+  {
+    "disease": "Mumps",
+    "section": "description"
+  },
+  {
+    "disease": "Mumps",
+    "section": "symptoms"
+  },
+  {
+    "disease": "Mumps",
+    "section": "treatment"
+  },
+  {
+    "disease": "Rubella",
+    "section": "description"
+  },
+  {
+    "disease": "Rubella",
+    "section": "symptoms"
+  },
+  {
+    "disease": "Rubella",
+    "section": "treatment"
+  },
+  {
+    "disease": "Tuberculosis",
+    "section": "description"
+  },
+  {
+    "disease": "Tuberculosis",
+    "section": "symptoms"
+  },
+  {
+    "disease": "Tuberculosis",
+    "section": "treatment"
+  },
+  {
+    "disease": "Hepatitis A",
+    "section": "description"
+  },
+  {
+    "disease": "Hepatitis A",
+    "section": "symptoms"
+  },
+  {
+    "disease": "Hepatitis A",
+    "section": "treatment"
+  },
+  {
+    "disease": "Hepatitis B",
+    "section": "description"
+  },
+  {
+    "disease": "Hepatitis B",
+    "section": "symptoms"
+  },
+  {
+    "disease": "Hepatitis B",
+    "section": "treatment"
+  },
+  {
+    "disease": "Malaria",
+    "section": "description"
+  },
+  {
+    "disease": "Malaria",
+    "section": "symptoms"
+  },
+  {
+    "disease": "Malaria",
+    "section": "treatment"
+  },
+  {
+    "disease": "Dengue",
+    "section": "description"
+  },
+  {
+    "disease": "Dengue",
+    "section": "symptoms"
+  },
+  {
+    "disease": "Dengue",
+    "section": "treatment"
+  },
+  {
+    "disease": "Zika",
+    "section": "description"
+  },
+  {
+    "disease": "Zika",
+    "section": "symptoms"
+  },
+  {
+    "disease": "Zika",
+    "section": "treatment"
+  },
+  {
+    "disease": "Chikungunya",
+    "section": "description"
+  },
+  {
+    "disease": "Chikungunya",
+    "section": "symptoms"
+  },
+  {
+    "disease": "Chikungunya",
+    "section": "treatment"
+  },
+  {
+    "disease": "Food Poisoning",
+    "section": "description"
+  },
+  {
+    "disease": "Food Poisoning",
+    "section": "symptoms"
+  },
+  {
+    "disease": "Food Poisoning",
+    "section": "treatment"
+  },
+  {
+    "disease": "Lactose Intolerance",
+    "section": "description"
+  },
+  {
+    "disease": "Lactose Intolerance",
+    "section": "symptoms"
+  },
+  {
+    "disease": "Lactose Intolerance",
+    "section": "treatment"
+  },
+  {
+    "disease": "Celiac Disease",
+    "section": "description"
+  },
+  {
+    "disease": "Celiac Disease",
+    "section": "symptoms"
+  },
+  {
+    "disease": "Celiac Disease",
+    "section": "treatment"
+  },
+  {
+    "disease": "Irritable Bowel Syndrome",
+    "section": "description"
+  },
+  {
+    "disease": "Irritable Bowel Syndrome",
+    "section": "symptoms"
+  },
+  {
+    "disease": "Irritable Bowel Syndrome",
+    "section": "treatment"
+  },
+  {
+    "disease": "Crohns Disease",
+    "section": "description"
+  },
+  {
+    "disease": "Crohns Disease",
+    "section": "symptoms"
+  },
+  {
+    "disease": "Crohns Disease",
+    "section": "treatment"
+  },
+  {
+    "disease": "Ulcerative Colitis",
+    "section": "description"
+  },
+  {
+    "disease": "Ulcerative Colitis",
+    "section": "symptoms"
+  },
+  {
+    "disease": "Ulcerative Colitis",
+    "section": "treatment"
+  },
+  {
+    "disease": "Gallstones",
+    "section": "description"
+  },
+  {
+    "disease": "Gallstones",
+    "section": "symptoms"
+  },
+  {
+    "disease": "Gallstones",
+    "section": "treatment"
+  },
+  {
+    "disease": "Pancreatitis",
+    "section": "description"
+  },
+  {
+    "disease": "Pancreatitis",
+    "section": "symptoms"
+  },
+  {
+    "disease": "Pancreatitis",
+    "section": "treatment"
+  },
+  {
+    "disease": "Heart Failure",
+    "section": "description"
+  },
+  {
+    "disease": "Heart Failure",
+    "section": "symptoms"
+  },
+  {
+    "disease": "Heart Failure",
+    "section": "treatment"
+  },
+  {
+    "disease": "Coronary Artery Disease",
+    "section": "description"
+  },
+  {
+    "disease": "Coronary Artery Disease",
+    "section": "symptoms"
+  },
+  {
+    "disease": "Coronary Artery Disease",
+    "section": "treatment"
+  },
+  {
+    "disease": "Stroke",
+    "section": "description"
+  },
+  {
+    "disease": "Stroke",
+    "section": "symptoms"
+  },
+  {
+    "disease": "Stroke",
+    "section": "treatment"
+  },
+  {
+    "disease": "Epilepsy",
+    "section": "description"
+  },
+  {
+    "disease": "Epilepsy",
+    "section": "symptoms"
+  },
+  {
+    "disease": "Epilepsy",
+    "section": "treatment"
+  }
+]

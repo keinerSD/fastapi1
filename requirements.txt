@@ -3,3 +3,10 @@ uvicorn[standard]
 psycopg2-binary
 pydantic
 python-dotenv
+faiss-cpu
+sentence_transformer
+deep-translator
+openai
+numpy
+pandas
+joblib
