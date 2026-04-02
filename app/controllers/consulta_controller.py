@@ -108,7 +108,7 @@ class ConsultaController:
                 conn.close()
 
 
-    def get_consultas(self):
+   def get_consultas(self):
         conn = None
         try:
             conn = get_db_connection()
@@ -124,19 +124,30 @@ class ConsultaController:
                     c.motivo_consulta,
                     c.fecha_entrada,
                     c.fecha_salida,
+    
                     e.primer_nombre,
                     e.primer_apellido,
-                    e.numero_identificacion
+                    e.numero_identificacion,
+    
+                    u.primer_nombre,
+                    u.primer_apellido
+    
                 FROM consulta c
+    
                 INNER JOIN estudiante e
                     ON c.id_estudiante = e.id_estudiante
+    
+                INNER JOIN usuario u
+                    ON c.id_usuario = u.id_usuario
             """)
     
             result = cursor.fetchall()
+    
             if not result:
                 raise HTTPException(status_code=404, detail="Consultas no encontradas")
     
             payload = []
+    
             for data in result:
                 payload.append({
                     "id_consulta": data[0],
@@ -147,19 +158,27 @@ class ConsultaController:
                     "motivo_consulta": data[5],
                     "fecha_entrada": data[6],
                     "fecha_salida": data[7],
-                    "primer_nombre": data[8],
-                    "primer_apellido": data[9],
-                    "cedula": data[10]
+    
+                    # estudiante
+                    "nombre_estudiante": f"{data[8]} {data[9]}",
+                    "cedula": data[10],
+    
+                    # enfermera 👇
+                    "nombre_enfermera": f"{data[11]} {data[12]}",
+    
+                    # emergencia 👇 (puedes ajustar la lógica)
+                    "es_emergencia": True if "emergencia" in (data[5] or "").lower() else False
                 })
     
             return {"resultado": jsonable_encoder(payload)}
     
         except psycopg2.Error as err:
             raise HTTPException(status_code=500, detail=str(err))
+    
         finally:
             if conn:
                 conn.close()
-
+                
     def get_consultas_by_cedula(self, cedula: str):
         conn = None
         try:
