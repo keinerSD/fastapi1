@@ -52,62 +52,57 @@ class ConsultaController:
                 conn.close()
 
 
-    def get_consulta(self, id_consulta: int):
-
+   def get_consultas(self):
         conn = None
-    
         try:
-    
             conn = get_db_connection()
             cursor = conn.cursor()
-    
+
             cursor.execute("""
                 SELECT 
                     c.id_consulta,
                     c.id_estudiante,
                     c.id_usuario,
-                    c.motivo_consulta,
                     c.diagnostico,
                     c.observaciones,
+                    c.motivo_consulta,
                     c.fecha_entrada,
                     c.fecha_salida,
-                    s.presion_arterial,
-                    s.temperatura,
-                    s.peso,
-                    s.altura,
-                    s.saturacion_oxigeno,
-                    s.frecuencia_cardiaca,
-                    s.tipo_sangre
+
+                    e.primer_nombre,
+                    e.primer_apellido,
+                    e.numero_identificacion,
+
+                    u.primer_nombre,
+                    u.primer_apellido
+
                 FROM consulta c
-                LEFT JOIN signos_vitales s
-                ON c.id_consulta = s.id_consulta
-                WHERE c.id_consulta = %s
-            """, (id_consulta,))
-    
-            consulta = cursor.fetchone()
-    
-            if consulta:
-    
-                columns = [col[0] for col in cursor.description]
-    
-                resultado = dict(zip(columns, consulta))
-    
-                return {"resultado": resultado}
-    
-            else:
-    
-                return {"resultado": None}
-    
+
+                INNER JOIN estudiante e
+                    ON c.id_estudiante = e.id_estudiante
+
+                INNER JOIN usuario u
+                    ON c.id_usuario = u.id_usuario
+            """)
+
+            result = cursor.fetchall()
+
+            payload = []
+            for data in result:
+                payload.append({
+                    "id_consulta": data[0],
+                    "nombre_enfermera": f"{data[11]} {data[12]}"
+                })
+
+            return {"resultado": payload}
+
         except Exception as e:
-    
             raise HTTPException(status_code=500, detail=str(e))
-    
+
         finally:
-    
             if conn:
                 conn.close()
-
-
+                
    def get_consultas(self):
         conn = None
         try:
