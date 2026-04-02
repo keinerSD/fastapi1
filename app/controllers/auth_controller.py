@@ -9,19 +9,34 @@ class AuthController:
     def login(self, datos: Login):
         email = datos.email
         password = datos.password
-
+    
         try:
             conn = get_db_connection()
             cursor = conn.cursor()
-            cursor.execute("SELECT * FROM usuario WHERE email = %s AND password = %s", (email, password))
+    
+            cursor.execute("""
+                SELECT id_usuario, email, id_rol 
+                FROM usuario 
+                WHERE email = %s AND password = %s
+            """, (email, password))
+    
             result = cursor.fetchone()
+    
             if result:
-                return {"resultado": "Login exitoso"}
+                return {
+                    "resultado": "Login exitoso",
+                    "id_usuario": result[0],
+                    "email": result[1],
+                    "id_rol": result[2]
+                }
             else:
                 raise HTTPException(status_code=401, detail="Credenciales inválidas")
+    
         except psycopg2.Error as err:
             print(err)
             conn.rollback()
+            raise HTTPException(status_code=500, detail="Error en el servidor")
+    
         finally:
             conn.close()
 
