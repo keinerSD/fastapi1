@@ -11,6 +11,6 @@ class Consulta(BaseModel):
     observaciones: str
     motivo_consulta: str
 
-    fecha_entrada: datetime.datetime
-    fecha_salida: datetime.datetime
+    fecha_entrada:Optional[datetime.datetime]
+    fecha_salida: Optional[datetime.datetime]
 
