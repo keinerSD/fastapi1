@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter
 from app.controllers.programa_controller import *
 from app.models.programa_model import Programa
 from fastapi_mail import FastMail, MessageSchema
@@ -17,23 +17,22 @@ async def create_programa(programa: Programa):
     mensaje = MessageSchema(
         subject="Programa creado",
         recipients=["garciapecam@gmail.com"],
-        body=f"Se creó el programa: {programa.nombre}",
+        body=f"""
+        Se creó un programa:
+
+        Nombre: {programa.nombre}
+        """,
         subtype="plain"
     )
 
     await FastMail(conf).send_message(mensaje)
-
     return rpta
-
-@router.get("/get_programas_por_facultad/{id_facultad}")
-async def get_programas_por_facultad(id_facultad: int):
-    return programa_controller.get_programas_por_facultad(id_facultad)
 
 
 @router.get("/get_programas/")
 async def get_programas():
-    rpta = nuevo_programa.get_programas()
-    return rpta
+    return nuevo_programa.get_programas()
+
 
 @router.put("/{id_programa}")
 async def update_programa(id_programa: int, programa: Programa):
@@ -43,27 +42,35 @@ async def update_programa(id_programa: int, programa: Programa):
     mensaje = MessageSchema(
         subject="Programa actualizado",
         recipients=["garciapecam@gmail.com"],
-        body=f"Se actualizó el programa con ID: {id_programa}",
+        body=f"""
+        Se actualizó un programa:
+
+        Nombre: {programa.nombre}
+        """,
         subtype="plain"
     )
 
     await FastMail(conf).send_message(mensaje)
-
     return rpta
 
 
 @router.delete("/{id_programa}")
 async def delete_programa(id_programa: int):
 
+    programa = nuevo_programa.get_programa(id_programa)
+
     rpta = nuevo_programa.delete_programa(id_programa)
 
     mensaje = MessageSchema(
         subject="Programa eliminado",
         recipients=["garciapecam@gmail.com"],
-        body=f"Se eliminó el programa con ID: {id_programa}",
+        body=f"""
+        Se eliminó un programa:
+
+        Nombre: {programa.nombre}
+        """,
         subtype="plain"
     )
 
     await FastMail(conf).send_message(mensaje)
-
     return rpta

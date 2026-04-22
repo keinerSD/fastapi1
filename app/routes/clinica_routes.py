@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter
 from app.controllers.clinica_controller import *
 from app.models.clinica_model import Clinica
 from fastapi_mail import FastMail, MessageSchema
@@ -25,41 +25,52 @@ async def create_clinica(clinica: Clinica):
         subtype="plain"
     )
 
-    fm = FastMail(conf)
-    await fm.send_message(mensaje)
-
+    await FastMail(conf).send_message(mensaje)
     return rpta
-
-
-@router.put("/{id_clinica}")
-def update_clinica(id_clinica: int, clinica: Clinica):
-    return nueva_clinica.update_clinica(id_clinica, clinica)
 
 
 @router.get("/get_clinicas/")
 async def get_clinicas():
-    rpta = nueva_clinica.get_clinicas()
-    return rpta
+    return nueva_clinica.get_clinicas()
 
 
 @router.put("/{id_clinica}")
-def update_clinica(id_clinica: int, clinica: Clinica):
-    return clinica_controller.update_clinica(id_clinica, clinica)
+async def update_clinica(id_clinica: int, clinica: Clinica):
+
+    rpta = nueva_clinica.update_clinica(id_clinica, clinica)
+
+    mensaje = MessageSchema(
+        subject="Clínica actualizada",
+        recipients=["garciapecam@gmail.com"],
+        body=f"""
+        Se actualizó una clínica:
+
+        Nombre: {clinica.nombre}
+        """,
+        subtype="plain"
+    )
+
+    await FastMail(conf).send_message(mensaje)
+    return rpta
 
 
 @router.delete("/{id_clinica}")
 async def delete_clinica(id_clinica: int):
+
+    clinica = nueva_clinica.get_clinica(id_clinica)
 
     rpta = nueva_clinica.delete_clinica(id_clinica)
 
     mensaje = MessageSchema(
         subject="Clínica eliminada",
         recipients=["garciapecam@gmail.com"],
-        body=f"Se eliminó la clínica con ID: {id_clinica}",
+        body=f"""
+        Se eliminó una clínica:
+
+        Nombre: {clinica.nombre}
+        """,
         subtype="plain"
     )
 
-    fm = FastMail(conf)
-    await fm.send_message(mensaje)
-
+    await FastMail(conf).send_message(mensaje)
     return rpta

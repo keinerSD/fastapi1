@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter
 from app.controllers.usuario_controller import *
 from app.models.usuario_model import Usuario
 from fastapi_mail import FastMail, MessageSchema
@@ -26,19 +26,18 @@ async def create_usuario(usuario: Usuario):
     )
 
     await FastMail(conf).send_message(mensaje)
-
     return rpta
+
 
 @router.get("/get_usuario/{id_usuario}", response_model=Usuario)
 async def get_usuario(id_usuario: int):
-    rpta = nuevo_usuario.get_usuario(id_usuario)
-    return rpta
+    return nuevo_usuario.get_usuario(id_usuario)
 
 
 @router.get("/get_usuarios/")
 async def get_usuarios():
-    rpta = nuevo_usuario.get_usuarios()
-    return rpta
+    return nuevo_usuario.get_usuarios()
+
 
 @router.put("/{id_usuario}")
 async def update_usuario(id_usuario: int, usuario: Usuario):
@@ -48,27 +47,35 @@ async def update_usuario(id_usuario: int, usuario: Usuario):
     mensaje = MessageSchema(
         subject="Usuario actualizado",
         recipients=["garciapecam@gmail.com"],
-        body=f"Se actualizó el usuario con ID: {id_usuario}",
+        body=f"""
+        Se actualizó un usuario:
+
+        Nombre: {usuario.primer_nombre} {usuario.primer_apellido}
+        """,
         subtype="plain"
     )
 
     await FastMail(conf).send_message(mensaje)
-
     return rpta
 
 
 @router.delete("/{id_usuario}")
 async def delete_usuario(id_usuario: int):
 
+    usuario = nuevo_usuario.get_usuario(id_usuario)
+
     rpta = nuevo_usuario.delete_usuario(id_usuario)
 
     mensaje = MessageSchema(
         subject="Usuario eliminado",
         recipients=["garciapecam@gmail.com"],
-        body=f"Se eliminó el usuario con ID: {id_usuario}",
+        body=f"""
+        Se eliminó un usuario:
+
+        Nombre: {usuario.primer_nombre} {usuario.primer_apellido}
+        """,
         subtype="plain"
     )
 
     await FastMail(conf).send_message(mensaje)
-
     return rpta

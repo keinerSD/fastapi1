@@ -26,8 +26,7 @@ async def create_estudiante(estudiante: Estudiante):
         subtype="plain"
     )
 
-    fm = FastMail(conf)
-    await fm.send_message(mensaje)
+    await FastMail(conf).send_message(mensaje)
 
     return rpta
 
@@ -43,23 +42,47 @@ async def get_estudiantes():
 
 
 @router.put("/{id_estudiante}")
-def update_estudiante(id_estudiante: int, estudiante: Estudiante):
-    return nuevo_estudiante.update_estudiante(id_estudiante, estudiante)
+async def update_estudiante(id_estudiante: int, estudiante: Estudiante):
+
+    rpta = nuevo_estudiante.update_estudiante(id_estudiante, estudiante)
+
+    mensaje = MessageSchema(
+        subject="Estudiante actualizado",
+        recipients=["garciapecam@gmail.com"],
+        body=f"""
+        Se actualizó un estudiante:
+
+        Nombre: {estudiante.primer_nombre} {estudiante.primer_apellido}
+        Documento: {estudiante.numero_identificacion}
+        """,
+        subtype="plain"
+    )
+
+    await FastMail(conf).send_message(mensaje)
+
+    return rpta
 
 
 @router.delete("/{id_estudiante}")
 async def delete_estudiante(id_estudiante: int):
+
+    # ⚠️ obtenemos los datos antes de eliminar
+    estudiante = nuevo_estudiante.get_estudiante(id_estudiante)
 
     rpta = nuevo_estudiante.delete_estudiante(id_estudiante)
 
     mensaje = MessageSchema(
         subject="Estudiante eliminado",
         recipients=["garciapecam@gmail.com"],
-        body=f"Se eliminó el estudiante con ID: {id_estudiante}",
+        body=f"""
+        Se eliminó un estudiante:
+
+        Nombre: {estudiante.primer_nombre} {estudiante.primer_apellido}
+        Documento: {estudiante.numero_identificacion}
+        """,
         subtype="plain"
     )
 
-    fm = FastMail(conf)
-    await fm.send_message(mensaje)
+    await FastMail(conf).send_message(mensaje)
 
     return rpta
